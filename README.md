@@ -30,7 +30,7 @@ conda activate OptimizedDP
 
 ## Code structure
 There are eight folders with different functions
-### BVP_generation: use standard BVP solver to collect the Nash equilibrial (NE) values for uncontrolled intersection (case 1), narrow arod collision avoidance (case 2), double lane change (case 3) and two-drone collision avoidance (case 4)
+### BVP_generation: use standard BVP solver to collect the Nash equilibrial (NE) values for uncontrolled intersection (case 1), narrow road collision avoidance (case 2), double-lane change (case 3) and two-drone collision avoidance (case 4)
 The code is organized as follows:
 * generate_intersection.py: generate 5D NE values functions under four player type configurations (a, a), (na, a), (a, na), and (na, na) for case 1.
 * generate_narrow_road.py: generate 9D NE values functions for case 2.
