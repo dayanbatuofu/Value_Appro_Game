@@ -10,7 +10,7 @@ Arizona State University
 This is the accepted T-RO paper <a href="https://arxiv.org/pdf/2311.16520.pdf"> "Value Approximation for Two-Player General-Sum Differential Games with State Constraints"</a>
 
 ## Get started
-There exists two different environment, you can set up a conda environment with all dependencies like so:
+There exists three different environment, you can set up a conda environment with all dependencies like so:
 
 For Toy_case, Uncontrolled_intersection_complete_information_game, Uncontrolled_intersection_incomplete_information_game,  Narrow_road_collision_avoidance, Double_lane_change, Two_drone_collision_avoidance
 ```
@@ -29,8 +29,8 @@ conda activate OptimizedDP
 ```
 
 ## Code structure
-There are five folders with different functions
-### BVP_generation: use standard BVP solver to collect the Nash equilibrial (NE) values for uncontrolled intersection (case 1) and collision avoidance (case 2) 
+There are eight folders with different functions
+### BVP_generation: use standard BVP solver to collect the Nash equilibrial (NE) values for uncontrolled intersection (case 1), narrow arod collision avoidance (case 2), double lane change (case 3) and two-drone collision avoidance (case 4)
 The code is organized as follows:
 * generate_intersection.py: generate 5D NE values functions under four player type configurations (a, a), (na, a), (a, na), and (na, na) for case 1.
 * generate_narrow_road.py: generate 9D NE values functions for case 2.
@@ -42,7 +42,7 @@ The code is organized as follows:
 * ./example/vehicle/problem_def_lane_change.py: dynamic, PMP equation setting for case 3.
 * ./example/vehicle/problem_def_drone_avoidance.py: dynamic, PMP equation setting for case 4.
 
-run `generate_intersection.py` or `generate_collision_avoidance.py` to collect NE values. Please notice there is four player types in case 1. You should give setting in `generate_intersection.py`. Data size can be set in `./example/vehicle/problem_def_intersection.py` or ./example/vehicle/problem_def_collision_avoidance.py.
+run `generate_intersection.py`, `generate_narrow_road.py`, `generate_lane_change.py`, `generate_drone_avoidance.py` to collect NE values. Please notice there is four player types in case 1. You should give setting in `generate_intersection.py`. Data size can be set in `./example/vehicle/problem_def_intersection.py`, `./example/vehicle/problem_def_narrow_road.py`, `./example/vehicle/problem_def_lane_change.py`, `./example/vehicle/problem_def_drone_avoidance.py`
 
 ### Toy Case: train supervised(SL), physics-informed neural network(PINN), hybrid(HL) and value hardening(VH) model to visualize the toy case shown in the paper
 The code is organized as follows:
