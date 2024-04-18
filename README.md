@@ -74,14 +74,15 @@ The code is organized as follows:
 * modules_adaptive.py: contains layers and full neural network modules with adaptive activation function for EL training.
 * utils.py: contains utility functions.
 * diff_operators.py: contains implementations of differential operators.
-* sim_draw_complete.py: animation of one case for SL, PINN, HL, EL and VH for case 1, reader can dirctly run and watch.
-* sim_draw_transparent_complete.py: visualization of one case for SL, PINN, HL, EL and VH for case 1, reader can dirctly run and watch.
-* sim_draw_incomplete.py: animation of one case for SL, PINN, HL, EL and VH for case 1, reader can dirctly run and watch.
-* sim_draw_transparent_incomplete.py: visualization of one case for SL, PINN, HL, EL and VH for case 1, reader can dirctly run and watch.
+* sim_draw_complete.py: animation of one case for SL, PINN, HL, EL and VH for case 1.
+* sim_draw_transparent_complete.py: visualization of one case for SL, PINN, HL, EL and VH for case 1.
+* sim_draw_incomplete.py: animation of one case for SL, PINN, HL, EL and VH for case 1.
+* sim_draw_transparent_incomplete.py: visualization of one case for SL, PINN, HL, EL and VH for case 1.
 * sim_draw_narrowroad.py: animation of one case for SL, PINN, HL, EL and VH for case 2, reader can dirctly run and watch.
-* sim_draw_transparent_narrowroad.py: visualization of one case for SL, PINN, HL, EL and VH for case 2, reader can dirctly run and watch.
-* sim_draw_lanechange.py: animation of one case for SL, PINN, HL, EL and VH for case 3, reader can dirctly run and watch.
-* sim_draw_transparent_lanechange.py: visualization of one case for SL, PINN, HL, EL and VH for case 3, reader can dirctly run and watch.
+* sim_draw_transparent_narrowroad.py: visualization of one case for SL, PINN, HL, EL and VH for case 2.
+* sim_draw_lanechange.py: animation of one case for SL, PINN, HL, EL and VH for case 3.
+* sim_draw_transparent_lanechange.py: visualization of one case for SL, PINN, HL, EL and VH for case 3.
+* drone_plot.py: visualization of one case for SL, PINN and HL for case 4.
 * ./experiment_scripts/train_intersection_HJI.py: contains scripts to train the model, which can reproduce experiments in the paper.
 * ./validation_scripts/closedloop_traj_generation_tanh.py: use value network (tanh as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
 * ./validation_scripts/closedloop_traj_generation_relu.py: use value network (relu as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
