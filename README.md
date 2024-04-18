@@ -101,7 +101,7 @@ The code is organized as follows:
 * ./validation_scripts/value_compute_tanh_expanded state.py: present measure the MAEs of value prediction for expanded state space (only for case 1).
 * ./validation_scripts/valuecontour_generate_epigraphical.py: generate value contour for EL method.
 * ./validation_scripts/valuecontour_generate_hybrid.py: generate value contour for HL method.
-* ./validation_scripts/valuecontour_gt_plot.py: plot value contour in Fig 4. Download the ground truth data before plotting: link <a href="https://drive.google.com/file/d/1KGnf94P3VrXH3JRKBiz5ME1Y2WYy4Mzi/view?usp=sharing">. 
+* ./validation_scripts/valuecontour_gt_plot.py: plot value contour in Fig 4. Download the ground truth data before plotting: <a href="https://drive.google.com/file/d/1KGnf94P3VrXH3JRKBiz5ME1Y2WYy4Mzi/view?usp=sharing"> link. 
 * ./validation_scripts/frequency_generation.py: implement FFT for value approximation in Case 1,2,3.
 * ./validation_scripts/frequency_plot.py: plot FFT of approximated value in d1-d2 domina, shown in Fig 13.
 * ./validation_scripts/model: experimental model in the paper.
@@ -128,7 +128,7 @@ The code is organized as follows:
 * ./validation_scripts/trajectory_policy_consistent.py: plot two-player trajectories projected into d1-d2 frame when players' initla belief is not consistent with their true parameter. 
 
 ### level_set_intersection: extend existing level set methods from zero-sum games to general-sum games to compute HJI values
-The code is organized as follows, exsting solver: link <a href="https://github.com/SFU-MARS/optimized_dp">:
+The code is organized as follows, exsting solver: <a href="https://github.com/SFU-MARS/optimized_dp"> link
 * ./examples/examples_5D.py: uncontrolled intersection problem setting.
 * ./op/computeGraphs/graph_4D_gs.py: mesh grid computation
 * ./op/dynamics/Intersection.py: dynamics setting
