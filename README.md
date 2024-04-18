@@ -91,10 +91,10 @@ The code is organized as follows:
 * ./validation_scripts/closedloop_traj_epigraphical_tanh.py: use EL value network (tanh as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
 * ./validation_scripts/closedloop_traj_epigraphical_relu.py: use EL value network (relu as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
 * ./validation_scripts/closedloop_traj_epigraphical_sine.py: use EL value network (sine as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
-* ./validation_scripts/trajectory_with_value_tanh.py: visualize generalization and saftety performance for value network (tanh as activation function).
-* ./validation_scripts/trajectory_with_value_relu.py: visualize generalization and saftety performance for value network (relu as activation function).
-* ./validation_scripts/trajectory_with_value_sine.py: visualize generalization and saftety performance for value network (sine as activation function).
-* ./validation_scripts/trajectory_with_value_gelu.py: visualize generalization and saftety performance for value network (gelu as activation function, only for case 1).
+* ./validation_scripts/trajectory_with_value_tanh.py: visualize saftety performance for value network (tanh as activation function).
+* ./validation_scripts/trajectory_with_value_relu.py: visualize saftety performance for value network (relu as activation function).
+* ./validation_scripts/trajectory_with_value_sine.py: visualize saftety performance for value network (sine as activation function).
+* ./validation_scripts/trajectory_with_value_gelu.py: visualize saftety performance for value network (gelu as activation function, only for case 1).
 * ./validation_scripts/value_generation_tanh.py: measure the MAEs of value and control input predictions across the test trajectories (only for case 1).
 * ./validation_scripts/action_compute_tanh_initial state.py: present measure the MAEs of control input prediction for initial state space (only for case 1).
 * ./validation_scripts/action_compute_tanh_expanded state.py: present measure the MAEs of control input prediction for expanded state space (only for case 1).
