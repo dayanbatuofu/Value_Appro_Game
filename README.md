@@ -99,6 +99,11 @@ The code is organized as follows:
 * ./validation_scripts/action_compute_tanh_expanded state.py: present measure the MAEs of control input prediction for expanded state space (only for case 1).
 * ./validation_scripts/value_compute_tanh_initial state.py: present measure the MAEs of value prediction for initial state space (only for case 1).
 * ./validation_scripts/value_compute_tanh_expanded state.py: present measure the MAEs of value prediction for expanded state space (only for case 1).
+* ./validation_scripts/valuecontour_generate_epigraphical.py: generate value contour for EL method.
+* ./validation_scripts/valuecontour_generate_hybrid.py: generate value contour for HL method.
+* ./validation_scripts/valuecontour_gt_plot.py: plot value contour in Fig 4. Download the ground truth data <a href="https://arxiv.org/pdf/2311.16520.pdf"> before plotting. 
+* ./validation_scripts/frequency_generation.py: implement FFT for value approximation in Case 1,2,3.
+* ./validation_scripts/frequency_plot.py: plot FFT of approximated value in d1-d2 domina, shown in Fig 13.
 * ./validation_scripts/model: experimental model in the paper.
 * ./validation_scripts/train_data: training data in the paper.
 * ./validation_scripts/test_data: testing data in the paper.
@@ -123,7 +128,7 @@ The code is organized as follows:
 * ./validation_scripts/trajectory_policy_consistent.py: plot two-player trajectories projected into d1-d2 frame when players' initla belief is not consistent with their true parameter. 
 
 ### level_set_intersection: extend existing level set methods from zero-sum games to general-sum games to compute HJI values
-The code is organized as follows, exsting solver: <a href="https://arxiv.org/pdf/2311.16520.pdf">:
+The code is organized as follows, exsting solver <a href="https://arxiv.org/pdf/2311.16520.pdf">:
 * ./examples/examples_5D.py: uncontrolled intersection problem setting.
 * ./op/computeGraphs/graph_4D_gs.py: mesh grid computation
 * ./op/dynamics/Intersection.py: dynamics setting
