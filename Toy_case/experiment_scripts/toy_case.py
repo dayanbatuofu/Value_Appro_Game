@@ -26,7 +26,7 @@ training epoch --num_epochs:
 20000 for hybrid 
 10000 for supervised 
 10000 for PINN
-3000 for value hardening, train 80*3000 iterations
+3000 for value hardening
 """
 p.add_argument('--num_epochs', type=int, default=10000,
                help='Number of epochs to train for.')
