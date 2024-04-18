@@ -4,7 +4,7 @@ import scipy.io
 import os
 import math
 
-class SSL_1D(Dataset):
+class PINN_1D(Dataset):
     def __init__(self, numpoints, seed=0):
         super().__init__()
         self.numpoints = numpoints
@@ -29,7 +29,7 @@ class SSL_1D(Dataset):
 
         return {'coords': coords}, {'source_boundary_values': boundary_values, 'dirichlet_mask': dirichlet_mask}
 
-class SSL_1D_vh(Dataset):
+class VH_1D(Dataset):
     def __init__(self, numpoints, alpha, seed=0):
         super().__init__()
         self.numpoints = numpoints

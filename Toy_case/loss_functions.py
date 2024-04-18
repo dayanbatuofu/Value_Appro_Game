@@ -3,7 +3,7 @@ import diff_operators
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-def SSL_1D(dataset):
+def PINN_1D(dataset):
     import math
 
     def toy(model_output, gt):
@@ -36,7 +36,7 @@ def SSL_1D(dataset):
 
     return toy
 
-def SSL_1D_vh(dataset, alphas):
+def VH_1D(dataset, alphas):
     import math
 
     def toy(model_output, gt):

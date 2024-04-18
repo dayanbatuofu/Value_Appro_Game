@@ -83,7 +83,10 @@ The code is organized as follows:
 * `sim_draw_lanechange.py`: animation of one case for SL, PINN, HL, EL and VH for case 3.
 * `sim_draw_transparent_lanechange.py`: visualization of one case for SL, PINN, HL, EL and VH for case 3.
 * `drone_plot.py`: visualization of one case for SL, PINN and HL for case 4.
-* `./experiment_scripts/train_intersection_HJI.py`: contains scripts to train the model, which can reproduce experiments in the paper.
+* `./experiment_scripts/train_intersection_HJI.py`: contains scripts to train the model for case 1, which can reproduce experiments in the paper.
+* `./experiment_scripts/train_collision_HJI.py`: contains scripts to train the model for case 2, which can reproduce experiments in the paper.
+* `./experiment_scripts/train_lane_HJI.py`: contains scripts to train the model for case 3, which can reproduce experiments in the paper.
+* `./experiment_scripts/train_drone_HJI.py`: contains scripts to train the model for case 4, which can reproduce experiments in the paper.
 * `./validation_scripts/closedloop_traj_generation_tanh.py`: use value network (tanh as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
 * `./validation_scripts/closedloop_traj_generation_relu.py`: use value network (relu as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
 * `./validation_scripts/closedloop_traj_generation_sine.py`: use value network (sine as activation function) as closed-loop controllers to generate data including generalization and saftety performance.

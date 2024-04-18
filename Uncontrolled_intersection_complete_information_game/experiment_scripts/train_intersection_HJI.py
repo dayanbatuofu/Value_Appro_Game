@@ -171,14 +171,14 @@ if PINN == True:
                                  final_layer_factor=1., hidden_features=opt.num_nl, num_hidden_layers=opt.num_hl)
     model.to(device)
 
-    loss_fn_selfsupervised = loss_functions.initialize_intersection_HJI_pinn(pinn_dataset, Weight, Theta)
+    loss_fn_pinn = loss_functions.initialize_intersection_HJI_pinn(pinn_dataset, Weight, Theta)
 
     path = 'experiment_HJI_' + opt.model + '_pinn_' + str(policy[N_choice]) + '/'
     root_path = os.path.join(opt.logging_root, path)
 
     training_pinn.train(model=model, train_dataloader=pinn_dataloader, epochs=opt.num_epochs,
                         lr=opt.lr, steps_til_summary=opt.steps_til_summary, epochs_til_checkpoint=opt.epochs_til_ckpt,
-                        model_dir=root_path, loss_fn=loss_fn_selfsupervised, clip_grad=opt.clip_grad,
+                        model_dir=root_path, loss_fn=loss_fn_pinn, clip_grad=opt.clip_grad,
                         use_lbfgs=opt.use_lbfgs, validation_fn=None, start_epoch=opt.checkpoint_toload)
 
 

@@ -3,7 +3,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import dataio, loss_functions, modules
-import training_selfsupervised, training_supervised, training_hybrid
+import training_pinn, training_supervised, training_hybrid, training_valuehardening
 from torch.utils.data import DataLoader
 import configargparse
 import torch
@@ -24,9 +24,9 @@ p.add_argument('--lr', type=float, default=2e-3, help='learning rate. default=2e
 """
 training epoch --num_epochs:
 20000 for hybrid 
-1000 for supervised 
-10000 for self-supervised
-3000 for value hardening
+10000 for supervised 
+10000 for PINN
+3000 for value hardening, train 80*3000 iterations
 """
 p.add_argument('--num_epochs', type=int, default=10000,
                help='Number of epochs to train for.')
@@ -48,16 +48,16 @@ p.add_argument('--use_lbfgs', default=False, type=bool, help='use L-BFGS.')
 
 """
 training epoch ---pretrain_iters: 
-1000 for hybrid
+10000 for hybrid
 """
-p.add_argument('--pretrain_iters', type=int, default=1000, required=False, help='Number of pretrain iterations')
+p.add_argument('--pretrain_iters', type=int, default=10000, required=False, help='Number of pretrain iterations')
 p.add_argument('--counter_start', type=int, default=-1, required=False, help='Defines the initial time for the curriculul training')
 
 """
 training epoch --counter_end:
-1000 for hybrid 
+10000 for hybrid 
 """
-p.add_argument('--counter_end', type=int, default=1000, required=False, help='Defines the linear step for curriculum training starting from the initial time')
+p.add_argument('--counter_end', type=int, default=10000, required=False, help='Defines the linear step for curriculum training starting from the initial time')
 p.add_argument('--pretrain', action='store_true', default=True, required=False, help='Pretrain dirichlet conditions')
 
 p.add_argument('--seed', type=int, default=0, required=False, help='Seed for the simulation.')
@@ -75,32 +75,32 @@ if opt.counter_end == -1:
   opt.counter_end = opt.num_epochs
 
 # set what to evaluate to True
-Selfsupervised = True
+PINN = False
 Supervised = False
 Hybrid = False
-Valuehardening = False
+Valuehardening = True
 
 
-if Selfsupervised == True:
+if PINN == True:
 
-    selfsupervised_dataset = dataio.SSL_1D(numpoints=2, seed=opt.seed)
+    pinn_dataset = dataio.PINN_1D(numpoints=2, seed=opt.seed)
 
-    selfsupervised_dataloader = DataLoader(selfsupervised_dataset, shuffle=True, batch_size=opt.batch_size,
-                                           pin_memory=True,  num_workers=0)
+    pinn_dataloader = DataLoader(pinn_dataset, shuffle=True, batch_size=opt.batch_size,
+                                 pin_memory=True,  num_workers=0)
 
     model = modules.SingleBVPNet(in_features=1, out_features=1, type=opt.model, mode=opt.mode,
                                  final_layer_factor=1., hidden_features=opt.num_nl, num_hidden_layers=opt.num_hl)
     model.to(device)
 
-    loss_fn_selfsupervised = loss_functions.SSL_1D(selfsupervised_dataset)
+    loss_fn_pinn = loss_functions.PINN_1D(pinn_dataset)
 
     path = 'ssl/'
     root_path = os.path.join(opt.logging_root, path)
 
-    training_selfsupervised.train(model=model, train_dataloader=selfsupervised_dataloader, epochs=opt.num_epochs,
-                                  lr=opt.lr, steps_til_summary=opt.steps_til_summary, epochs_til_checkpoint=opt.epochs_til_ckpt,
-                                  model_dir=root_path, loss_fn=loss_fn_selfsupervised, clip_grad=opt.clip_grad,
-                                  use_lbfgs=opt.use_lbfgs, validation_fn=None, start_epoch=opt.checkpoint_toload)
+    training_pinn.train(model=model, train_dataloader=pinn_dataloader, epochs=opt.num_epochs,
+                        lr=opt.lr, steps_til_summary=opt.steps_til_summary, epochs_til_checkpoint=opt.epochs_til_ckpt,
+                        model_dir=root_path, loss_fn=loss_fn_pinn, clip_grad=opt.clip_grad,
+                        use_lbfgs=opt.use_lbfgs, validation_fn=None, start_epoch=opt.checkpoint_toload)
 
 if Supervised == True:
     supervised_dataset = dataio.Sup_1D(seed=opt.seed)
@@ -115,12 +115,12 @@ if Supervised == True:
     path = 'supervised'
     root_path = os.path.join(opt.logging_root, path)
 
-    training_supervised.train(model=model, train_dataloader=supervised_dataloader,
-                   epochs=opt.num_epochs, lr=opt.lr, steps_til_summary=opt.steps_til_summary,
-                   epochs_til_checkpoint=opt.epochs_til_ckpt, model_dir=root_path,
-                   loss_fn=loss_fn_supervised, clip_grad=opt.clip_grad,
-                   use_lbfgs=opt.use_lbfgs, validation_fn=None, start_epoch=opt.checkpoint_toload,
-                   pretrain=False, pretrain_iters=opt.num_epochs)
+    training_supervised.train(model=model, train_dataloader=supervised_dataloader, epochs=opt.num_epochs, lr=opt.lr,
+                              steps_til_summary=opt.steps_til_summary, epochs_til_checkpoint=opt.epochs_til_ckpt,
+                              model_dir=root_path, loss_fn=loss_fn_supervised, clip_grad=opt.clip_grad,
+                              use_lbfgs=opt.use_lbfgs, validation_fn=None, start_epoch=opt.checkpoint_toload,
+                              pretrain=False, pretrain_iters=opt.pretrain_iters)
+
 
 if Hybrid == True:
     supervised_dataset = dataio.Sup_1D(seed=opt.seed)
@@ -143,10 +143,10 @@ if Hybrid == True:
     root_path = os.path.join(opt.logging_root, path)
 
     training_hybrid.train(model=model, train_dataloader=hybrid_dataloader, train_dataloader_supervised=supervised_dataloader,
-                   epochs=opt.num_epochs, lr=opt.lr, steps_til_summary=opt.steps_til_summary,
-                   epochs_til_checkpoint=opt.epochs_til_ckpt, model_dir=root_path, loss_fn=loss_fn_hybrid,
-                   loss_fn_supervised=loss_fn_supervised, clip_grad=opt.clip_grad, use_lbfgs=opt.use_lbfgs,
-                   validation_fn=None, start_epoch=opt.checkpoint_toload, pretrain=True, pretrain_iters=opt.pretrain_iters)
+                          epochs=opt.num_epochs, lr=opt.lr, steps_til_summary=opt.steps_til_summary,
+                          epochs_til_checkpoint=opt.epochs_til_ckpt, model_dir=root_path, loss_fn=loss_fn_hybrid,
+                          loss_fn_supervised=loss_fn_supervised, clip_grad=opt.clip_grad, use_lbfgs=opt.use_lbfgs,
+                          validation_fn=None, start_epoch=opt.checkpoint_toload, pretrain=True, pretrain_iters=opt.pretrain_iters)
 
 
 if Valuehardening == True:
@@ -175,15 +175,13 @@ if Valuehardening == True:
 
         print(f'\n Training with alpha: {alpha[i]}\n')
 
-        ssl_dataset = dataio.SSL_1D_vh(numpoints=300, alpha=alpha[i], seed=opt.seed)
+        vh_dataset = dataio.VH_1D(numpoints=300, alpha=alpha[i], seed=opt.seed)
 
-        ssl_dataloader = DataLoader(ssl_dataset, shuffle=True, batch_size=opt.batch_size, pin_memory=True, num_workers=0)
+        vh_dataloader = DataLoader(vh_dataset, shuffle=True, batch_size=opt.batch_size, pin_memory=True, num_workers=0)
 
-        loss_fn = loss_functions.SSL_1D_vh(ssl_dataset, alpha[i])
+        loss_fn_vh = loss_functions.VH_1D(vh_dataset, alpha[i])
 
-        training_selfsupervised.train(model=model, train_dataloader=ssl_dataloader, epochs=opt.num_epochs, lr=opt.lr,
-                                      steps_til_summary=opt.steps_til_summary,
-                                      epochs_til_checkpoint=opt.epochs_til_ckpt,
-                                      model_dir=root_path, loss_fn=loss_fn, clip_grad=opt.clip_grad,
-                                      use_lbfgs=opt.use_lbfgs, validation_fn=None, load_dir=load_dir,
-                                      start_epoch=start_epoch)
+        training_valuehardening.train(model=model, train_dataloader=vh_dataloader, epochs=opt.num_epochs, lr=opt.lr,
+                                      steps_til_summary=opt.steps_til_summary, epochs_til_checkpoint=opt.epochs_til_ckpt,
+                                      model_dir=root_path, loss_fn=loss_fn_vh, clip_grad=opt.clip_grad,
+                                      use_lbfgs=opt.use_lbfgs, validation_fn=None, load_dir=load_dir, start_epoch=start_epoch)

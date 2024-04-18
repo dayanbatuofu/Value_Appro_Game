@@ -69,10 +69,6 @@ def train(model, train_dataloader, epochs, lr, steps_til_summary, epochs_til_che
                 #            os.path.join(checkpoints_dir, 'model_epoch_%04d.pth' % epoch))
                 np.savetxt(os.path.join(checkpoints_dir, 'train_losses_epoch_%04d.txt' % epoch),
                            np.array(train_losses))
-                # np.savetxt(os.path.join(checkpoints_dir, 'value_losses_epoch_%04d.txt' % epoch),
-                #            np.array(value_losses))
-                # np.savetxt(os.path.join(checkpoints_dir, 'costate_losses_epoch_%04d.txt' % epoch),
-                #            np.array(costate_losses))
                 if validation_fn is not None:
                     validation_fn(model, checkpoints_dir, epoch)
 
@@ -163,15 +159,6 @@ def train(model, train_dataloader, epochs, lr, steps_til_summary, epochs_til_che
                    os.path.join(checkpoints_dir, 'model_final.pth'))
         np.savetxt(os.path.join(checkpoints_dir, 'train_losses_final.txt'),
                    np.array(train_losses))
-
-        # save a checkpoint for further training as well
-
-        checkpoint = {
-            'epoch': epoch,
-            'model': model.state_dict(),
-            'optimizer': optim.state_dict()}
-        torch.save(checkpoint,
-                   os.path.join(checkpoints_dir, 'model_epoch_%04d.pth' % epoch))
 
 
 class LinearDecaySchedule():
