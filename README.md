@@ -7,12 +7,12 @@ Zhe Xu,
 Yi Ren<br>
 Arizona State University
 
-This is the implementation of the paper <a href="https://arxiv.org/abs/2207.01773"> "Approximating-Discontinuous-Nash-Equilibrial-Values-of-Two-Player-General-Sum-Differential-Games"</a>
+This is the implementation of the paper <a href="https://arxiv.org/pdf/2311.16520.pdf"> "Value Approximation for Two-Player General-Sum Differential Games with State Constraints"</a>
 
 ## Get started
 There exists two different environment, you can set up a conda environment with all dependencies like so:
 
-For Toy Case, Collision_avoidance, Uncontrolled_intersection_complete_information_game and Uncontrolled_intersection_incomplete_information_game
+For Toy_case, Uncontrolled_intersection_complete_information_game, Uncontrolled_intersection_incomplete_information_game,  Narrow_road_collision_avoidance, Double_lane_change, Two_drone_collision_avoidance
 ```
 conda env create -f environment.yml
 conda activate siren
@@ -22,16 +22,25 @@ For BVP_generation
 conda env create -f environment.yml
 conda activate hji
 ```
+For level_set_intersection
+```
+conda env create -f environment.yml
+conda activate OptimizedDP
+```
 
 ## Code structure
 There are five folders with different functions
 ### BVP_generation: use standard BVP solver to collect the Nash equilibrial (NE) values for uncontrolled intersection (case 1) and collision avoidance (case 2) 
 The code is organized as follows:
-* generate_intersection.py: generate 5D NE values under four player type configurations (a, a), (na, a), (a, na), and (na, na) for case 1.
-* generate_collision_avoidance.py: generate 9D NE values for case 2.
+* generate_intersection.py: generate 5D NE values functions under four player type configurations (a, a), (na, a), (a, na), and (na, na) for case 1.
+* generate_narrow_road.py: generate 9D NE values functions for case 2.
+* generate_lane_change.py: generate 9D NE values functions for case 3.
+* generate_drone_avoidance.py: generate 13D NE values functions for case 4.
 * ./utilities/BVP_solver.py: BVP solver.
 * ./example/vehicle/problem_def_intersection.py: dynamic, PMP equation setting for case 1.
-* ./example/vehicle/problem_def_collision_avoidance.py: dynamic, PMP equation setting for case 2.
+* ./example/vehicle/problem_def_narrow_road.py: dynamic, PMP equation setting for case 2.
+* ./example/vehicle/problem_def_lane_change.py: dynamic, PMP equation setting for case 3.
+* ./example/vehicle/problem_def_drone_avoidance.py: dynamic, PMP equation setting for case 4.
 
 run `generate_intersection.py` or `generate_collision_avoidance.py` to collect NE values. Please notice there is four player types in case 1. You should give setting in `generate_intersection.py`. Data size can be set in `./example/vehicle/problem_def_intersection.py` or ./example/vehicle/problem_def_collision_avoidance.py.
 
