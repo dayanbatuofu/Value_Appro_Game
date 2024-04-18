@@ -144,4 +144,3 @@ The code is organized as follows:
 
 ## Contact
 If you have any questions, please feel free to email the authors.
-# T-RO
