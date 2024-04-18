@@ -11,25 +11,25 @@ bvpANA = True
 bvpNAA = False
 
 if bvpAA is True:
-    path1 = 'test_data/data_test_a_a_500_18.mat'
+    path1 = 'test_data/data_test_a_a_500.mat'
     path2 = 'value/tanh/value_generation_hybrid_expanded_a_a_tanh.mat'
     path3 = 'value/tanh/value_generation_supervised_expanded_a_a_tanh.mat'
     path4 = 'value/tanh/value_generation_selfsupervised_a_a_tanh.mat'
     path5 = 'value/tanh/value_generation_valuehardening_a_a_tanh.mat'
 if bvpNANA is True:
-    path1 = 'test_data/data_test_na_na_500_18.mat'
+    path1 = 'test_data/data_test_na_na_500.mat'
     path2 = 'value/tanh/value_generation_hybrid_expanded_na_na_tanh.mat'
     path3 = 'value/tanh/value_generation_supervised_expanded_na_na_tanh.mat'
     path4 = 'value/tanh/value_generation_selfsupervised_expanded_na_na_tanh.mat'
     path5 = 'value/tanh/value_generation_valuehardening_expanded_na_na_tanh.mat'
 if bvpANA is True:
-    path1 = 'test_data/data_test_a_na_500_18.mat'
+    path1 = 'test_data/data_test_a_na_500.mat'
     path2 = 'value/tanh/value_generation_hybrid_expanded_a_na_tanh.mat'
     path3 = 'value/tanh/value_generation_supervised_expanded_a_na_tanh.mat'
     path4 = 'value/tanh/value_generation_selfsupervised_expanded_a_na_tanh.mat'
     path5 = 'value/tanh/value_generation_valuehardening_expanded_a_na_tanh.mat'
 if bvpNAA is True:
-    path1 = 'test_data/data_test_na_a_500_18.mat'
+    path1 = 'test_data/data_test_na_a_500.mat'
     path2 = 'value/tanh/value_generation_hybrid_expanded_na_a_tanh.mat'
     path3 = 'value/tanh/value_generation_supervised_expanded_na_a_tanh.mat'
     path4 = 'value/tanh/value_generation_selfsupervised_expanded_na_a_tanh.mat'
