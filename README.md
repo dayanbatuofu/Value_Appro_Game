@@ -115,9 +115,9 @@ The code is organized as follows:
 The code is organized as follows:
 * main.py: run the simulatio with initial setting including agent's belief, empathetic or non-empathetic.
 * enviroment.py: simulation environment is generated here, using the parameters from main.py.
-* savi_simulation.py: initial conditions are processed for the simulation here, such as agent parameters (beta) and action set. The initialization belief table is also done here through the function get_initial_belief().
+* savi_simulation.py: initial conditions are processed for the simulation here, such as agent parameters (beta) and action set. The initialization belief table is also done here through the function `get_initial_belief()`.
 * inference_model.py: inference is done after observing the state. There are several models implemented here: bvp, baseline, etc. The inference algorithm updates the belief table at each time step using the selected model defined in main.py.
-* decision.py: decision model returns an action for each agent, depending on the type of agent defined in main.py. Models include bvp_empathetic, bvp_non_empathetic, baseline, etc.
+* decision.py: decision model returns an action for each agent, depending on the type of agent defined in main.py. Models include `bvp_empathetic`, `bvp_non_empathetic`, `baseline`, etc.
 * plot_loss_traj.py: convert .cvs file into .mat file to generate two-player trajectories projected into d1-d2 frame. 
 * modules.py: contains layers and full neural network modules.
 * utils.py: contains utility functions.
