@@ -22,7 +22,7 @@ For BVP_generation
 conda env create -f environment.yml
 conda activate hji
 ```
-For level_set_intersection
+For Level_set_intersection
 ```
 conda env create -f environment.yml
 conda activate OptimizedDP
