@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f1850004-3b46-4286-9b72-6805b5d654fc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/examples/choose_problem_collision_avoidance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/vehicle/problem_def_collision_avoidance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate_collision_avoidance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate_intersection.py" beforeDir="false" afterPath="$PROJECT_DIR$/generate_intersection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/assets/blue_car.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/assets/blue_car_sized.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/assets/coordinates.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/assets/green_car_sized.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/assets/grey_car_sized.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/assets/red_car.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/assets/red_car_sized.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/assets/shallow grey_car_sized.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/assets/white_car_sized.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/dataio.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/diff_operators.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/environment.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/examples/choose_problem_HD.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/examples/problem_def_template.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/examples/vehicle/data_test_a_a_GT.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/examples/vehicle/data_test_a_a_HL.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/examples/vehicle/data_test_a_a_SL.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/examples/vehicle/data_test_a_a_SSL.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/examples/vehicle/data_test_a_a_VH.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/examples/vehicle/problem_def_HD.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/experiment_scripts/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/experiment_scripts/train_collision_HJI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/loss_functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/modules.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/sim_draw_HD_lane_orientation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/sim_draw_transparent_lane_orientation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/training_hybrid.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/training_selfsupervised.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/training_supervised.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/training_valuehardening.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/closedloop_traj_generation_HD_relu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/closedloop_traj_generation_HD_sine.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/closedloop_traj_generation_HD_tanh.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/model/relu/model_hybrid_HD_relu.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/model/relu/model_selfsupervised_HD_relu.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/model/relu/model_supervised_HD_relu.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/model/sine/model_hybrid_HD_sine.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/model/sine/model_selfsupervised_HD_sine.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/model/sine/model_supervised_HD_sine.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/model/tanh/model_hybrid_HD_tanh.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/model/tanh/model_selfsupervised_HD_tanh.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/model/tanh/model_supervised_HD_tanh.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/model/tanh/model_valuehardening_HD_tanh.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/test_data/data_test_HD_600_no collision.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/train_data/data_train_HD_500.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/train_data/data_train_HD_950.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/train_data/data_train_HD_spare.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/trajectory_with_value_HD_relu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/trajectory_with_value_HD_sine.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Collision_avoidance/validation_scripts/trajectory_with_value_HD_tanh.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Uncontrolled_intersection_complete_information_game/dataio.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Uncontrolled_intersection_complete_information_game/dataio.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Uncontrolled_intersection_complete_information_game/loss_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Uncontrolled_intersection_complete_information_game/loss_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Uncontrolled_intersection_complete_information_game/training_hybrid.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Uncontrolled_intersection_complete_information_game/training_hybrid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Uncontrolled_intersection_complete_information_game/training_selfsupervised.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Uncontrolled_intersection_complete_information_game/training_selfsupervised.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Uncontrolled_intersection_complete_information_game/training_supervised.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Uncontrolled_intersection_complete_information_game/training_supervised.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Uncontrolled_intersection_complete_information_game/training_valuehardening.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Uncontrolled_intersection_complete_information_game/training_valuehardening.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2f9eghhzvZoSaCOrtRktCpZw2eu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Two_drone_collision_avoidance" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager" selected="Python.generate_drone_avoidance">
+    <configuration name="generate_drone_avoidance" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BVP_generation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/generate_drone_avoidance.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="generate_lane_change" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BVP_generation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/generate_lane_change.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="generate_narrow_road" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BVP_generation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/generate_narrow_road.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.generate_drone_avoidance" />
+        <item itemvalue="Python.generate_lane_change" />
+        <item itemvalue="Python.generate_narrow_road" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f1850004-3b46-4286-9b72-6805b5d654fc" name="Changes" comment="" />
+      <created>1713217834797</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713217834797</updated>
+    </task>
+    <servers />
+  </component>
+</project>
