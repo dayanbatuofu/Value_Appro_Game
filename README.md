@@ -114,9 +114,9 @@ The code is organized as follows:
 * ./validation_scripts/trajectory_policy_consistent.py: plot two-player trajectories projected into d1-d2 frame when players' initla belief is consistent with their true parameter. 
 * ./validation_scripts/trajectory_policy_consistent.py: plot two-player trajectories projected into d1-d2 frame when players' initla belief is not consistent with their true parameter. 
 
-### Collision_avoidance: train supervised(SL), physics-informed neural network(PINN), hybrid(HL), epigraphical(EL) and value hardening(VH) model to complete generalization and saftety performance test for case 1
+### Collision_avoidance: train supervised(SL), physics-informed neural network(PINN), hybrid(HL), epigraphical(EL) and value hardening(VH) model to complete generalization and saftety performance test for case 2
 The code is organized as follows:
-* dataio.py: load training data for SL, PINN, HL and VH.
+* dataio.py: load training data for SL, PINN, HL, EL and VH.
 * training_supervised.py: contains SL training routine.
 * training_selfsupervised.py: contains PINN training routine.
 * training_hybrid.py: contains HL training routine.
