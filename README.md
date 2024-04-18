@@ -48,7 +48,7 @@ run `generate_intersection.py`, `generate_narrow_road.py`, `generate_lane_change
 The code is organized as follows:
 * `dataio.py`: load training data for SL, PINN, HL and VH.
 * `training_supervised.py`: contains SL training routine.
-* `training_selfsupervised.py`: contains PINN training routine.
+* `training_pinn.py`: contains PINN training routine.
 * `training_hybrid.py`: contains HL training routine.
 * `training_supervised.py`: contains SL training routine.
 * `training_valuehardening.py`: contains VH training routine.
