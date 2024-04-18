@@ -7,7 +7,7 @@ Zhe Xu,
 Yi Ren<br>
 Arizona State University
 
-This is the implementation of the paper <a href="https://arxiv.org/pdf/2311.16520.pdf"> "Value Approximation for Two-Player General-Sum Differential Games with State Constraints"</a>
+This is the accepte T-RO paper <a href="https://arxiv.org/pdf/2311.16520.pdf"> "Value Approximation for Two-Player General-Sum Differential Games with State Constraints"</a>
 
 ## Get started
 There exists two different environment, you can set up a conda environment with all dependencies like so:
