@@ -60,7 +60,7 @@ The code is organized as follows:
 * ./validation_scripts/toy_case_value_plot.py: use this script to plot Fig 1(a) in the paper. 
 * ./validation_scripts/toy_case_value_hardening_plots.py: use this script to plot Fig 1(b) in the paper. 
 
-### Uncontrolled_intersection_complete_information_game: train supervised(SL), physics-informed neural network(PINN), hybrid(HL), epigraphical(EL) and value hardening(VH) model to complete generalization and saftety performance test for case 1 with complete information
+### Uncontrolled_intersection_complete_information_game/Narrow_road_collision_avoidance/Double_lane_change/Two_drone_collision_avoidance: train supervised(SL), physics-informed neural network(PINN), hybrid(HL), epigraphical(EL) and value hardening(VH) model to complete generalization and saftety performance test for case 1/2/3/4 with complete information
 The code is organized as follows:
 * dataio.py: load training data for SL, PINN, HL, EL and VH.
 * training_supervised.py: contains SL training routine.
@@ -69,28 +69,36 @@ The code is organized as follows:
 * training_supervised.py: contains SL training routine.
 * training_valuehardening.py: contains VH training routine.
 * training_epigraphical.py: contains EL training routine.
-* loss_functions.py: contains loss functions for SL, PINN, HL, EL and VH.
+* loss_functions.py: contains loss functions for SL, PINN, HL, EL and VH (case 4 only includes SL, PINN and HL).
 * modules.py: contains layers and full neural network modules.
+* modules_adaptive.py: contains layers and full neural network modules with adaptive activation function for EL training.
 * utils.py: contains utility functions.
 * diff_operators.py: contains implementations of differential operators.
-* sim_draw_complete.py: animation of one case for SL, PINN, HL, EL and VH on paper, reader can dirctly run and watch.
-* sim_draw_transparent_complete.py: visualization of one case for SL, PINN, HL, EL and VH on paper, reader can dirctly run and watch.
-* sim_draw_incomplete.py: animation of one case for SL, PINN, HL, EL and VH on paper, reader can dirctly run and watch.
-* sim_draw_transparent_incomplete.py: visualization of one case for SL, PINN, HL, EL and VH on paper, reader can dirctly run and watch.
+* sim_draw_complete.py: animation of one case for SL, PINN, HL, EL and VH for case 1, reader can dirctly run and watch.
+* sim_draw_transparent_complete.py: visualization of one case for SL, PINN, HL, EL and VH for case 1, reader can dirctly run and watch.
+* sim_draw_incomplete.py: animation of one case for SL, PINN, HL, EL and VH for case 1, reader can dirctly run and watch.
+* sim_draw_transparent_incomplete.py: visualization of one case for SL, PINN, HL, EL and VH for case 1, reader can dirctly run and watch.
+* sim_draw_narrowroad.py: animation of one case for SL, PINN, HL, EL and VH for case 2, reader can dirctly run and watch.
+* sim_draw_transparent_narrowroad.py: visualization of one case for SL, PINN, HL, EL and VH for case 2, reader can dirctly run and watch.
+* sim_draw_lanechange.py: animation of one case for SL, PINN, HL, EL and VH for case 3, reader can dirctly run and watch.
+* sim_draw_transparent_lanechange.py: visualization of one case for SL, PINN, HL, EL and VH for case 3, reader can dirctly run and watch.
 * ./experiment_scripts/train_intersection_HJI.py: contains scripts to train the model, which can reproduce experiments in the paper.
 * ./validation_scripts/closedloop_traj_generation_tanh.py: use value network (tanh as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
 * ./validation_scripts/closedloop_traj_generation_relu.py: use value network (relu as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
 * ./validation_scripts/closedloop_traj_generation_sine.py: use value network (sine as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
-* ./validation_scripts/closedloop_traj_generation_gelu.py: use value network (gelu as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
+* ./validation_scripts/closedloop_traj_generation_gelu.py: use value network (gelu as activation function) as closed-loop controllers to generate data including generalization and saftety performance (only for case 1).
+* ./validation_scripts/closedloop_traj_epigraphical_tanh.py: use EL value network (tanh as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
+* ./validation_scripts/closedloop_traj_epigraphical_relu.py: use EL value network (relu as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
+* ./validation_scripts/closedloop_traj_epigraphical_sine.py: use EL value network (sine as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
 * ./validation_scripts/trajectory_with_value_tanh.py: visualize generalization and saftety performance for value network (tanh as activation function).
 * ./validation_scripts/trajectory_with_value_relu.py: visualize generalization and saftety performance for value network (relu as activation function).
 * ./validation_scripts/trajectory_with_value_sine.py: visualize generalization and saftety performance for value network (sine as activation function).
-* ./validation_scripts/trajectory_with_value_gelu.py: visualize generalization and saftety performance for value network (gelu as activation function).
-* ./validation_scripts/value_generation_tanh.py: measure the MAEs of value and control input predictions across the test trajectories.
-* ./validation_scripts/action_compute_tanh_initial state.py: present measure the MAEs of control input prediction for initial state space.
-* ./validation_scripts/action_compute_tanh_expanded state.py: present measure the MAEs of control input prediction for expanded state space.
-* ./validation_scripts/value_compute_tanh_initial state.py: present measure the MAEs of value prediction for initial state space.
-* ./validation_scripts/value_compute_tanh_expanded state.py: present measure the MAEs of value prediction for expanded state space.
+* ./validation_scripts/trajectory_with_value_gelu.py: visualize generalization and saftety performance for value network (gelu as activation function, only for case 1).
+* ./validation_scripts/value_generation_tanh.py: measure the MAEs of value and control input predictions across the test trajectories (only for case 1).
+* ./validation_scripts/action_compute_tanh_initial state.py: present measure the MAEs of control input prediction for initial state space (only for case 1).
+* ./validation_scripts/action_compute_tanh_expanded state.py: present measure the MAEs of control input prediction for expanded state space (only for case 1).
+* ./validation_scripts/value_compute_tanh_initial state.py: present measure the MAEs of value prediction for initial state space (only for case 1).
+* ./validation_scripts/value_compute_tanh_expanded state.py: present measure the MAEs of value prediction for expanded state space (only for case 1).
 * ./validation_scripts/model: experimental model in the paper.
 * ./validation_scripts/train_data: training data in the paper.
 * ./validation_scripts/test_data: testing data in the paper.
@@ -114,33 +122,15 @@ The code is organized as follows:
 * ./validation_scripts/trajectory_policy_consistent.py: plot two-player trajectories projected into d1-d2 frame when players' initla belief is consistent with their true parameter. 
 * ./validation_scripts/trajectory_policy_consistent.py: plot two-player trajectories projected into d1-d2 frame when players' initla belief is not consistent with their true parameter. 
 
-### Collision_avoidance: train supervised(SL), physics-informed neural network(PINN), hybrid(HL), epigraphical(EL) and value hardening(VH) model to complete generalization and saftety performance test for case 2
-The code is organized as follows:
-* dataio.py: load training data for SL, PINN, HL, EL and VH.
-* training_supervised.py: contains SL training routine.
-* training_selfsupervised.py: contains PINN training routine.
-* training_hybrid.py: contains HL training routine.
-* training_supervised.py: contains SL training routine.
-* training_valuehardening.py: contains VH training routine.
-* loss_functions.py: contains loss functions for SL, PINN, HL and VH.
-* modules.py: contains layers and full neural network modules.
-* utils.py: contains utility functions.
-* diff_operators.py: contains implementations of differential operators.
-* sim_draw_HD_lane_orientation.py: animation of one case for SL, PINN, HL and VH on paper, reader can dirctly run and watch. Reader needs to create folder `image_recodring` manually.
-* sim_draw_transparent_lane_orientation.py: visualization of one case for SL, PINN, HL and VH on paper, reader can dirctly run and watch. Reader needs to create folder `image_recodring` manually.
-* ./experiment_scripts/train_collision_HJI.py: contains scripts to train the model, which can reproduce experiments in the paper.
-* ./validation_scripts/closedloop_traj_generation_HD_tanh.py: use value network (tanh as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
-* ./validation_scripts/closedloop_traj_generation_HD_relu.py: use value network (relu as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
-* ./validation_scripts/closedloop_traj_generation_HD_sine.py: use value network (sine as activation function) as closed-loop controllers to generate data including generalization and saftety performance.
-* ./validation_scripts/trajectory_with_value_HD_tanh.py: visualize generalization and saftety performance for value network (tanh as activation function).
-* ./validation_scripts/trajectory_with_value_HD_relu.py: visualize generalization and saftety performance for value network (relu as activation function).
-* ./validation_scripts/trajectory_with_value_HD_sine.py: visualize generalization and saftety performance for value network (sine as activation function).
-* ./validation_scripts/model: experimental model in the paper.
-* ./validation_scripts/train_data: training data in the paper.
-* ./validation_scripts/test_data: testing data in the paper.
-* ./validation_scripts/closed_loop: store data by using value network as closed-loop controllers, reader needs to create it manually.
-
-
+### level_set_intersection: extend existing level set methods from zero-sum games to general-sum games to compute HJI values
+The code is organized as follows, exsting solver: <a href="https://arxiv.org/pdf/2311.16520.pdf">:
+* ./examples/examples_5D.py: uncontrolled intersection problem setting.
+* ./op/computeGraphs/graph_4D_gs.py: mesh grid computation
+* ./op/dynamics/Intersection.py: dynamics setting
+* ./op/Grid/GridProcessing.py: how to set up mesh grid.
+* ./op/Shape/ShapesFunctions.py: shape function setting for uncontrolled intersection.
+* ./op/spatialDerivatives/first_orderENO4D.py: first order derivative computation.
+* ./op/spatialDerivatives/second_orderENO4D.py: second order derivative computation.
 
 ## Contact
 If you have any questions, please feel free to email the authors.
