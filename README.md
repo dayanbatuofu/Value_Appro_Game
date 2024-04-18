@@ -78,7 +78,7 @@ The code is organized as follows:
 * sim_draw_transparent_complete.py: visualization of one case for SL, PINN, HL, EL and VH for case 1.
 * sim_draw_incomplete.py: animation of one case for SL, PINN, HL, EL and VH for case 1.
 * sim_draw_transparent_incomplete.py: visualization of one case for SL, PINN, HL, EL and VH for case 1.
-* sim_draw_narrowroad.py: animation of one case for SL, PINN, HL, EL and VH for case 2, reader can dirctly run and watch.
+* sim_draw_narrowroad.py: animation of one case for SL, PINN, HL, EL and VH for case 2.
 * sim_draw_transparent_narrowroad.py: visualization of one case for SL, PINN, HL, EL and VH for case 2.
 * sim_draw_lanechange.py: animation of one case for SL, PINN, HL, EL and VH for case 3.
 * sim_draw_transparent_lanechange.py: visualization of one case for SL, PINN, HL, EL and VH for case 3.
