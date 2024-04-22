@@ -242,7 +242,6 @@ if __name__ == '__main__':
     ckpt_path = './model/relu/model_hybrid_drone_relu.pth'
     # ckpt_path = './model/relu/model_supervised_drone_relu.pth'
     # ckpt_path = './model/relu/model_pinn_drone_relu.pth'
-    # ckpt_path = './model/relu/model_valuehardening_drone_relu.pth'
     activation = 'relu'
 
     # Initialize and load the model

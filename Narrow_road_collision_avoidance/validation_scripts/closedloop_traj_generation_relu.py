@@ -206,7 +206,7 @@ if __name__ == '__main__':
     model.load_state_dict(model_weights)
     model.eval()
 
-    path = './test_data/data_test_HD_600_no collision.mat'
+    path = './test_data/data_test_narrowroad_600.mat'
     test_data = scio.loadmat(path)
 
     t = test_data['t']

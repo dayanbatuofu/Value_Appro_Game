@@ -24,11 +24,10 @@ def pointInRect(points):
 file = 'closed_loop/sine/closedloop_traj_hybrid_narrowroad_sine.mat'
 # file = 'closed_loop/sine/closedloop_traj_epigraphical_narrowroad_sine.mat'
 index = 2
-title = 'GT'
 # title = 'PINN'
 # title = 'Value hardening'
 # title = 'Supervised'
-# title = 'Hybrid'
+title = 'Hybrid'
 # title = 'Epigraphical'
 special = 0
 

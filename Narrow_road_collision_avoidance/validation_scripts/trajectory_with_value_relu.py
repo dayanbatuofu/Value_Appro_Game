@@ -24,11 +24,10 @@ def pointInRect(points):
 file = 'closed_loop/relu/closedloop_traj_hybrid_narrowroad_relu.mat'
 # file = 'closed_loop/relu/closedloop_traj_epigraphical_narrowroad_relu.mat'
 index = 2
-title = 'GT'
 # title = 'PINN'
 # title = 'Value hardening'
 # title = 'Supervised'
-# title = 'Hybrid'
+title = 'Hybrid'
 # title = 'Epigraphical'
 special = 0
 

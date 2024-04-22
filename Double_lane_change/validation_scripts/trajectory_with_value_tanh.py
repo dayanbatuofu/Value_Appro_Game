@@ -18,20 +18,18 @@ def pointInRect(points):
 
 #________________________________________________________________________________________
 
-# file = 'data_train_a_a_lane.mat'
-# file = 'data_test_a_a_lane.mat'
 # file = 'data_test_lane_600.mat'
 # file = 'closed_loop/tanh/closedloop_traj_pinn_lane_tanh.mat'
 # file = 'closed_loop/tanh/closedloop_traj_valuehardening_lane_tanh.mat'
 # file = 'closed_loop/new/closedloop_traj_supervised_lane_tanh.mat'
-file = 'closed_loop/tanh/closedloop_traj_hybrid_lane_tanh_rev4.mat'
+file = 'closed_loop/tanh/closedloop_traj_hybrid_lane_tanh.mat'
 # file = 'closed_loop/tanh/closedloop_traj_epigraphical_lane_tanh.mat'
 index = 2
-title = 'GT'
+# title = 'GT'
 # title = 'PINN'
 # title = 'Value hardening'
 # title = 'Supervised'
-# title = 'Hybrid'
+title = 'Hybrid'
 # title = 'Epigraphical'
 special = 0
 theta1 = 1

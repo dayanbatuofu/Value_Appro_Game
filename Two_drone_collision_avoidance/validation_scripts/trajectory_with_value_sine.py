@@ -19,12 +19,10 @@ def pointInRect(points):
 #________________________________________________________________________________________
 
 # file = 'closed_loop/sine/closedloop_traj_pinn_drone_sine.mat'
-# file = 'closed_loop/sine/closedloop_traj_valuehardening_drone_sine.mat'
 # file = 'closed_loop/sine/closedloop_traj_supervised_drone_sine.mat'
 file = 'closed_loop/sine/closedloop_traj_hybrid_drone_sine.mat'
 index = 2
 # title = 'PINN'
-# title = 'Value hardening'
 # title = 'Supervised'
 title = 'Hybrid'
 special = 0

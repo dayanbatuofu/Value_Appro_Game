@@ -28,8 +28,8 @@ def value_function(coords, alpha, model):
 
     return y1, y2
 
-# ckpt_path = './model/tanh/model_hybrid_na_na_tanh_old.pth'
-ckpt_path = './model/tanh/model_valuehardening_na_na_tanh.pth'
+ckpt_path = './model/tanh/model_hybrid_na_na_tanh.pth'
+# ckpt_path = './model/tanh/model_valuehardening_na_na_tanh.pth'
 activation = 'tanh'
 
 # Initialize and load the model
@@ -63,7 +63,6 @@ d2_axis = torch.linspace(-1, 1, steps=numpoints)
 d1, d2 = torch.meshgrid(d1_axis, d2_axis)
 
 Time = torch.linspace(0, 3, steps=4)
-# Time = torch.linspace(3, 3, steps=1)
 
 V1 = np.zeros((Time.shape[0], numpoints, numpoints))
 V2 = np.zeros((Time.shape[0], numpoints, numpoints))
@@ -115,7 +114,7 @@ data = {'V1': V1,
 
 save_data = 1  # input('Save data? Enter 0 for no, 1 for yes:')
 if save_data:
-    # save_path = 'value/tanh/fft_value_hybrid_na_na_tanh_old.mat'
-    save_path = 'value/tanh/fft_value_valuehardening_na_na_tanh.mat'
+    save_path = 'value/tanh/fft_value_hybrid_na_na_tanh.mat'
+    # save_path = 'value/tanh/fft_value_valuehardening_na_na_tanh.mat'
     scio.savemat(save_path, data)
 

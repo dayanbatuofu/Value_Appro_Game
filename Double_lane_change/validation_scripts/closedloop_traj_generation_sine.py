@@ -195,10 +195,10 @@ if __name__ == '__main__':
     self-supervised， hybrid and supervised uses alpha = 1
     """
 
-    # ckpt_path = './model/sine/model_hybrid_lane_sine.pth'
+    ckpt_path = './model/sine/model_hybrid_lane_sine.pth'
     # ckpt_path = './model/new/model_supervised_lane_sine.pth'
     # ckpt_path = './model/sine/model_pinn_lane_sine.pth'
-    ckpt_path = './model/sine/model_valuehardening_lane_sine.pth'
+    # ckpt_path = './model/sine/model_valuehardening_lane_sine.pth'
     activation = 'sine'
     alpha = 1
 

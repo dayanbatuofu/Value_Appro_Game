@@ -10,7 +10,7 @@ VH = False
 N_index = 3
 N_input = 0
 
-file_hl = 'value/tanh/fft_value_hybrid_na_na_tanh_old.mat'
+file_hl = 'value/tanh/fft_value_hybrid_na_na_tanh.mat'
 file_vh = 'value/tanh/fft_value_valuehardening_na_na_tanh.mat'
 t_final = 3
 

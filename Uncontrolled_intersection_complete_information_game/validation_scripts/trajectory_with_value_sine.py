@@ -6,10 +6,10 @@ from matplotlib import cm
 from matplotlib.collections import LineCollection
 from matplotlib.colors import ListedColormap
 
-bvpAA = False
+bvpAA = True
 bvpANA = False
 bvpNAA = False
-bvpNANA = True
+bvpNANA = False
 agent1 = True
 agent2 = False
 
@@ -29,9 +29,13 @@ if bvpAA is True:
     # file = 'closed_loop/sine/closedloop_traj_pinn_initial_a_a_sine.mat'
     # file = 'closed_loop/sine/closedloop_traj_supervised_initial_a_a_sine.mat'
     file = 'closed_loop/sine/closedloop_traj_hybrid_initial_a_a_sine.mat'
+    # file = 'closed_loop/sine/closedloop_traj_valuehardening_initial_a_a_sine.mat'
+    # file = 'closed_loop/sine/closedloop_traj_epigraphical_initial_a_a_sine.mat'
     # file = 'closed_loop/sine/closedloop_traj_pinn_expanded_a_a_sine.mat'
     # file = 'closed_loop/sine/closedloop_traj_supervised_expanded_a_a_sine.mat'
     # file = 'closed_loop/sine/closedloop_traj_hybrid_expanded_a_a_sine.mat'
+    # file = 'closed_loop/sine/closedloop_traj_valuehardening_expanded_a_a_sine.mat'
+    # file = 'closed_loop/sine/closedloop_traj_epigraphical_expanded_a_a_sine.mat'
     index = 2
     # title = 'PINN $\Theta^{*}=(a,a)$'
     # title = 'Supervised $\Theta^{*}=(a,a)$'

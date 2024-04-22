@@ -213,7 +213,8 @@ if Hybrid == True:
 
 
 if Valuehardening == True:
-    Weight = (15, 1000)
+    Weight = (10, 200)
+    alpha = 0.1
 
     valuehardening_dataset = dataio.IntersectionHJI_PINN(numpoints=61000, pretrain=opt.pretrain, tMin=opt.tMin,
                                                          tMax=opt.tMax, counter_start=opt.counter_start,
@@ -228,6 +229,7 @@ if Valuehardening == True:
     model.to(device)
 
     gamma = np.linspace(0.001, 5, 50)
+    # gamma = np.logspace(-3, -1, 10)  # explanation for failure of value hardening setting
 
     for i in range(len(gamma)):
         if i == 0:
@@ -244,7 +246,7 @@ if Valuehardening == True:
 
         root_path = os.path.join(opt.logging_root, path)
 
-        loss_fn_valuehardening = loss_functions.initialize_intersection_HJI_valuehardening(valuehardening_dataset, gamma[i], Weight)
+        loss_fn_valuehardening = loss_functions.initialize_intersection_HJI_valuehardening(valuehardening_dataset, gamma[i], Weight, alpha)
 
         print(f'\nTraining with gamma: {gamma[i]}\n')
 

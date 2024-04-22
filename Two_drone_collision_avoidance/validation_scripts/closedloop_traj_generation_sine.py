@@ -242,7 +242,6 @@ if __name__ == '__main__':
     ckpt_path = './model/sine/model_hybrid_drone_sine.pth'
     # ckpt_path = './model/sine/model_supervised_drone_sine.pth'
     # ckpt_path = './model/sine/model_pinn_drone_sine.pth'
-    # ckpt_path = './model/sine/model_valuehardening_drone_sine.pth'
     activation = 'sine'
 
     # Initialize and load the model

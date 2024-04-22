@@ -5,16 +5,12 @@ import scipy.io
 from matplotlib import cm
 from matplotlib.collections import LineCollection
 
-intersection = True
-avoidance = False
-lane = False
 HL = True
 VH = False
-N_index = 3
-N_input = 0
+N_index = 4
 
-file_hl = 'value/tanh/variable=' + str(N_input) + '/fft_value_hybrid_lane_tanh.mat'
-file_vh = 'value/tanh/variable=' + str(N_input) + '/fft_value_valuehardening_lane_tanh.mat'
+file_hl = 'value/tanh/fft_value_hybrid_lane_tanh.mat'
+file_vh = 'value/tanh/fft_value_valuehardening_lane_tanh.mat'
 t_final = 4
 if HL == True:
     title = 'Case 3 $F[V]_{HL}$ at t=' + str(t_final - N_index) + 's'

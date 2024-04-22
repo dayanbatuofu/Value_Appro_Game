@@ -20,13 +20,11 @@ def pointInRect(points):
 
 file = 'test_data/data_test_drone_600.mat'
 # file = 'closed_loop/tanh/closedloop_traj_pinn_drone_tanh.mat'
-# file = 'closed_loop/tanh/closedloop_traj_valuehardening_drone_tanh.mat'
 # file = 'closed_loop/tanh/closedloop_traj_supervised_drone_tanh.mat'
 # file = 'closed_loop/tanh/closedloop_traj_hybrid_drone_tanh.mat'
 index = 2
 title = 'GT'
 # title = 'PINN'
-# title = 'Value hardening'
 # title = 'Supervised'
 # title = 'Hybrid'
 special = 0

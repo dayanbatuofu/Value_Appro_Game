@@ -83,7 +83,7 @@ def optimal_z_generation(X, t, model):
 
     return z1_0, z2_0
 
-def value_action(X, t, model, N_choice):
+def value_action(X, t, model):
     # normalize the state for agent 1, agent 2
     dx_1 = 2.0 * (X[0, :] - 15) / (90 - 15) - 1.
     dy_1 = 2.0 * (X[1, :] - 32) / (38 - 32) - 1.
@@ -270,7 +270,7 @@ def dynamic(X_nn, dt, action):
 
     return dx1, dy1, theta1, v1, dx2, dy2, theta2, v2
 
-def discrete_data(data, dt, N_choice, N):
+def discrete_data(data, dt, N):
     dx1 = data['dx1']
     dy1 = data['dy1']
     theta1 = data['theta1']
@@ -385,9 +385,6 @@ if __name__ == '__main__':
     logging_root = './logs'
     N_neurons = 64
 
-    policy = ['a_a', 'a_na', 'na_a', 'na_na']
-    N_choice = 0
-
     ckpt_path = './model/relu/model_epigraphical_narrowroad_relu.pth'
     activation = 'relu'
 
@@ -496,7 +493,7 @@ if __name__ == '__main__':
             t_nn = np.array([[Time[j - 1]]])
             u1[i][j - 1], u2[i][j - 1], w1[i][j - 1], w2[i][j - 1], V1[i][j - 1], V2[i][j - 1], ct_1[i][j - 1], ct_2[i][j - 1], \
             ham_1[i][j - 1], ham_2[i][j - 1], hji_1[i][j - 1], hji_2[i][j - 1], diff_hji1[i][j - 1], diff_hji2[i][j - 1], \
-            yA1[i][j - 1], yB1[i][j - 1], yA2[i][j - 1], yB2[i][j - 1] = value_action(X_nn, t_nn, model, N_choice)
+            yA1[i][j - 1], yB1[i][j - 1], yA2[i][j - 1], yB2[i][j - 1] = value_action(X_nn, t_nn, model)
             if j == Time.shape[0]:
                 break
             else:
@@ -549,7 +546,7 @@ if __name__ == '__main__':
             'diff_hji2': diff_hji2,
             't': t}
 
-    final_data = discrete_data(data, dt, N_choice, N)
+    final_data = discrete_data(data, dt, N)
 
     save_data = 1  # input('Save data? Enter 0 for no, 1 for yes:')
     if save_data:

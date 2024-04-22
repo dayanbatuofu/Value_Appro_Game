@@ -30,16 +30,16 @@ def value_function(coords, alpha, model):
 
 logging_root = './logs'
 
-ckpt_path = './model/tanh/model_hybrid_HD_tanh.pth'
-# ckpt_path = './model/tanh/model_valuehardening_HD_tanh.pth'
+ckpt_path = './model/tanh/model_hybrid_narrowroad_tanh.pth'
+# ckpt_path = './model/tanh/model_valuehardening_narrowroad_tanh.pth'
 activation = 'tanh'
 
 """
 value hardening uses alpha = 10
-self-supervised， hybrid and supervised uses alpha = 1
+hybrid uses alpha = 1
 """
 
-alpha = 10
+alpha = 1
 
 # Initialize and load the model
 model = modules.SingleBVPNet(in_features=9, out_features=1, type=activation, mode='mlp',
@@ -124,7 +124,7 @@ data = {'V1': V1,
 
 save_data = 1  # input('Save data? Enter 0 for no, 1 for yes:')
 if save_data:
-    save_path = 'value/tanh/fft_value_hybrid_HD_tanh.mat'
-    # save_path = 'value/tanh/fft_value_valuehardening_HD_tanh.mat'
+    save_path = 'value/tanh/fft_value_hybrid_narrowroad_tanh.mat'
+    # save_path = 'value/tanh/fft_value_valuehardening_narrowroad_tanh.mat'
     scio.savemat(save_path, data)
 

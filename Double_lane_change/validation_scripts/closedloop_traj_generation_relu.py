@@ -195,10 +195,10 @@ if __name__ == '__main__':
     self-supervised， hybrid and supervised uses alpha = 1
     """
 
-    # ckpt_path = './model/relu/model_hybrid_lane_relu.pth'
-    # ckpt_path = './model/new/model_supervised_lane_relu_200k.pth'
+    ckpt_path = './model/relu/model_hybrid_lane_relu.pth'
+    # ckpt_path = './model/new/model_supervised_lane_relu.pth'
     # ckpt_path = './model/relu/model_pinn_lane_relu.pth'
-    ckpt_path = './model/relu/model_valuehardening_lane_relu.pth'
+    # ckpt_path = './model/relu/model_valuehardening_lane_relu.pth'
     activation = 'relu'
     alpha = 1
 

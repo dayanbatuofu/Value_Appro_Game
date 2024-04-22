@@ -247,7 +247,6 @@ if __name__ == '__main__':
     ckpt_path = './model/tanh/model_hybrid_drone_tanh.pth'
     # ckpt_path = './model/tanh/model_supervised_drone_tanh.pth'
     # ckpt_path = './model/tanh/model_pinn_drone_tanh.pth'
-    # ckpt_path = './model/tanh/model_valuehardening_drone_tanh.pth'
     activation = 'tanh'
 
     # Initialize and load the model

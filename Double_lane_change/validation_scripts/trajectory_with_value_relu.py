@@ -20,7 +20,7 @@ def pointInRect(points):
 
 # file = 'closed_loop/relu/closedloop_traj_pinn_lane_relu.mat'
 # file = 'closed_loop/relu/closedloop_traj_valuehardening_lane_relu.mat'
-# file = 'closed_loop/new/closedloop_traj_supervised_lane_relu_200k.mat'
+# file = 'closed_loop/relu/closedloop_traj_supervised_lane_relu.mat'
 file = 'closed_loop/relu/closedloop_traj_hybrid_lane_relu.mat'
 # file = 'closed_loop/relu/closedloop_traj_epigraphical_lane_relu.mat'
 index = 2

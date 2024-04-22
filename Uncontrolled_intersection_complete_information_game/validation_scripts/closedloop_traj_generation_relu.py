@@ -198,10 +198,10 @@ if __name__ == '__main__':
     model.eval()
 
     "initial state space including 600 trajectories"
-    path = './test_data/data_test_' + str(policy[N_choice]) + '_600_18.mat'
+    path = './test_data/data_test_' + str(policy[N_choice]) + '_600.mat'
 
     "expanded state space including 500 trajectories"
-    # path = './test_data/data_test_' + str(policy[N_choice]) + '_500_18.mat'
+    # path = './test_data/data_test_' + str(policy[N_choice]) + '_500.mat'
     test_data = scio.loadmat(path)
 
     t = test_data['t']
