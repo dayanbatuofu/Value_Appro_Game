@@ -11,7 +11,7 @@ import scipy.io as scio
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-def value_action(X, t, model):
+def value_action(X, t, model, alpha):
     # normalize the state for agent 1, agent 2
     dx_1 = 2.0 * (X[0, :] - 15) / (90 - 15) - 1.
     dy_1 = 2.0 * (X[1, :] - 32) / (38 - 32) - 1.
@@ -73,12 +73,13 @@ def value_action(X, t, model):
     max_acc_w = torch.tensor([1.], dtype=torch.float32).to(device)
     min_acc_w = torch.tensor([-1.], dtype=torch.float32).to(device)
 
-    U1 = 0.5 * lam11_4
-    W1 = lam11_3 / 200
+    # action for agent 1
+    U1 = 0.5 * lam11_4 * alpha
+    W1 = lam11_3 * alpha / 200
 
     # action for agent 2
-    U2 = 0.5 * lam22_4
-    W2 = lam22_3 / 200
+    U2 = 0.5 * lam22_4 * alpha
+    W2 = lam22_3 * alpha / 200
 
     U1[torch.where(U1 > max_acc_u)] = max_acc_u
     U1[torch.where(U1 < min_acc_u)] = min_acc_u
@@ -186,11 +187,17 @@ if __name__ == '__main__':
 
     logging_root = './logs'
 
+    """
+    value hardening uses alpha = 10
+    self-supervised， hybrid and supervised uses alpha = 1
+    """
+
     ckpt_path = './model/sine/model_hybrid_narrowroad_sine.pth'
     # ckpt_path = './model/sine/model_supervised_narrowroad_sine.pth'
     # ckpt_path = './model/sine/model_pinn_narrowroad_sine.pth'
     # ckpt_path = './model/sine/model_valuehardening_narrowroad_sine.pth'
     activation = 'sine'
+    alpha = 1
 
     # Initialize and load the model
     model = modules.SingleBVPNet(in_features=9, out_features=1, type=activation, mode='mlp',
@@ -261,7 +268,7 @@ if __name__ == '__main__':
                              [theta2[i][j - 1]],
                              [v2[i][j - 1]]])
             t_nn = np.array([[Time[j - 1]]])
-            u1[i][j - 1], u2[i][j - 1], w1[i][j - 1], w2[i][j - 1] = value_action(X_nn, t_nn, model)
+            u1[i][j - 1], u2[i][j - 1], w1[i][j - 1], w2[i][j - 1] = value_action(X_nn, t_nn, model, alpha)
             if j == Time.shape[0]:
                 break
             else:

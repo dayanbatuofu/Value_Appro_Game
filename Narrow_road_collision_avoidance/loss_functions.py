@@ -588,7 +588,7 @@ def initialize_intersection_HJI_hyrid(dataset, Weight):
                 'diff_constraint_hom': torch.abs(diff_constraint_hom).sum() / weight4}
     return intersection_hji
 
-def initialize_intersection_HJI_valuehardening(dataset, gamma, Weight):
+def initialize_intersection_HJI_valuehardening(dataset, gamma, Weight, alpha):
     def intersection_hji(model_output, gt):
         weight1, weight2 = Weight
         source_boundary_values = gt['source_boundary_values']
@@ -642,12 +642,12 @@ def initialize_intersection_HJI_valuehardening(dataset, gamma, Weight):
         # H = lambda^T * (-f) + L because we invert the time
         # Agent 1's action
         # H = (dV/dt)^T * (-f) + V*L when inverting the time, optimal action u = 1/2 * B^T * lambda / V
-        u1 = 0.5 * lam11_4
-        w1 = lam11_3 / 200
+        u1 = 0.5 * lam11_4 * (1/alpha)
+        w1 = lam11_3 / (200 * alpha)
 
         # Agent 2's action
-        u2 = 0.5 * lam22_4
-        w2 = lam22_3 / 200
+        u2 = 0.5 * lam22_4 * (1/alpha)
+        w2 = lam22_3 / (200 * alpha)
 
         # set up bounds for u1 and u2
         max_acc_u = torch.tensor([10.], dtype=torch.float32).to(device)
@@ -700,8 +700,8 @@ def initialize_intersection_HJI_valuehardening(dataset, gamma, Weight):
         loss_instant2 = beta * sigmoid2
 
         # calculate instantaneous loss
-        loss_fun_1 = 100 * w1 ** 2 + u1 ** 2 + loss_instant1
-        loss_fun_2 = 100 * w2 ** 2 + u2 ** 2 + loss_instant2
+        loss_fun_1 = alpha * (100 * w1 ** 2 + u1 ** 2 + loss_instant1)
+        loss_fun_2 = alpha * (100 * w2 ** 2 + u2 ** 2 + loss_instant2)
 
         # calculate hamiltonian, H = lambda^T * (-f) + L because we invert the time
         ham_1 = -lam11_1.squeeze() * v_11.squeeze() * torch.cos(theta_11.squeeze()) - \
@@ -729,8 +729,8 @@ def initialize_intersection_HJI_valuehardening(dataset, gamma, Weight):
             diff_constraint_hom = torch.cat((diff_constraint_hom_1, diff_constraint_hom_2), dim=0)
 
         # boundary condition check
-        dirichlet_1 = y1[dirichlet_mask] - 1 * source_boundary_values[:, :y1.shape[1]][dirichlet_mask]
-        dirichlet_2 = y2[dirichlet_mask] - 1 * source_boundary_values[:, y2.shape[1]:][dirichlet_mask]
+        dirichlet_1 = y1[dirichlet_mask] - alpha * source_boundary_values[:, :y1.shape[1]][dirichlet_mask]
+        dirichlet_2 = y2[dirichlet_mask] - alpha * source_boundary_values[:, y2.shape[1]:][dirichlet_mask]
         dirichlet = torch.cat((dirichlet_1, dirichlet_2), dim=0)
 
         # A factor of (weight1, weight2) to make loss roughly equal

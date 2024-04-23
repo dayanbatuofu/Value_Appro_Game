@@ -190,11 +190,6 @@ if __name__ == '__main__':
 
     logging_root = './logs'
 
-    """
-    value hardening uses alpha = 1/10
-    self-supervised， hybrid and supervised uses alpha = 1
-    """
-
     ckpt_path = './model/tanh/model_hybrid_lane_tanh.pth'
     # ckpt_path = './model/new/model_supervised_lane_tanh.pth'
     # ckpt_path = './model/tanh/model_pinn_lane_tanh.pth'

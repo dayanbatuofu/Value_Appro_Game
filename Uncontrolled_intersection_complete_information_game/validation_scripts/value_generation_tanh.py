@@ -82,7 +82,7 @@ if __name__ == '__main__':
     N_choice = 0
 
     """
-    self-supervised and value hardening uses alpha = 10 for (a,a), (a,na), (na,a), (na,na)
+    pinn and value hardening uses alpha = 10 for (a,a), (a,na), (na,a), (na,na)
     hybrid and supervised uses alpha = 1 for (a,a) and alpha = 10 for (a,na), (na,a), (na,na)
     """
     if N_choice == 0:
@@ -108,11 +108,8 @@ if __name__ == '__main__':
     model.load_state_dict(model_weights)
     model.eval()
 
-    "initial state space including 600 trajectories"
-    path = 'data_test_' + str(policy[N_choice]) + '_600_18.mat'
-
-    "expanded state space including 500 trajectories"
-    # path = 'data_test_' + str(policy[N_choice]) + '_500_18.mat'
+    path = 'value_generation_gt_' + str(policy[N_choice]) + '_initial.mat'
+    # path = 'value_generation_gt_' + str(policy[N_choice]) + '_expanded.mat'
     test_data = scio.loadmat(path)
 
     t = test_data['t']
