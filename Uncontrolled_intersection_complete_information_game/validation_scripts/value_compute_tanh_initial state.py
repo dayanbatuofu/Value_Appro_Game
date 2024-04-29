@@ -44,7 +44,7 @@ data5 = scipy.io.loadmat(path5)
 V_real = data1['V']
 V_pred_hybrid = data2['V']
 V_pred_supervised = data3['V']
-V_pred_selfsupervised = data4['V']
+V_pred_pinn = data4['V']
 V_pred_valuehardening = data5['V']
 
 data1.update({'t0': data1['t']})
@@ -56,8 +56,8 @@ V1_error_hybrid = np.zeros((len(idx0), N))
 V2_error_hybrid = np.zeros((len(idx0), N))
 V1_error_supervised = np.zeros((len(idx0), N))
 V2_error_supervised = np.zeros((len(idx0), N))
-V1_error_selfsupervised = np.zeros((len(idx0), N))
-V2_error_selfsupervised = np.zeros((len(idx0), N))
+V1_error_pinn = np.zeros((len(idx0), N))
+V2_error_pinn = np.zeros((len(idx0), N))
 V1_error_valuehardening = np.zeros((len(idx0), N))
 V2_error_valuehardening = np.zeros((len(idx0), N))
 
@@ -68,8 +68,8 @@ for i in range(1, len(idx0) + 1):
             V2_error_hybrid[i - 1][j] = np.abs(V_real[1, idx0[i - 1]:][j] - V_pred_hybrid[1, idx0[i - 1]:][j])
             V1_error_supervised[i - 1][j] = np.abs(V_real[0, idx0[i - 1]:][j] - V_pred_supervised[0, idx0[i - 1]:][j])
             V2_error_supervised[i - 1][j] = np.abs(V_real[1, idx0[i - 1]:][j] - V_pred_supervised[1, idx0[i - 1]:][j])
-            V1_error_selfsupervised[i - 1][j] = np.abs(V_real[0, idx0[i - 1]:][j] - V_pred_selfsupervised[0, idx0[i - 1]:][j])
-            V2_error_selfsupervised[i - 1][j] = np.abs(V_real[1, idx0[i - 1]:][j] - V_pred_selfsupervised[1, idx0[i - 1]:][j])
+            V1_error_pinn[i - 1][j] = (V_real[0, idx0[i - 1]:][j] - V_pred_pinn[0, idx0[i - 1]:][j])
+            V2_error_pinn[i - 1][j] = (V_real[1, idx0[i - 1]:][j] - V_pred_pinn[1, idx0[i - 1]:][j])
             V1_error_valuehardening[i - 1][j] = np.abs(V_real[0, idx0[i - 1]:][j] - V_pred_valuehardening[0, idx0[i - 1]:][j])
             V2_error_valuehardening[i - 1][j] = np.abs(V_real[1, idx0[i - 1]:][j] - V_pred_valuehardening[1, idx0[i - 1]:][j])
     else:
@@ -78,8 +78,8 @@ for i in range(1, len(idx0) + 1):
             V2_error_hybrid[i - 1][j] = np.abs(V_real[1, idx0[i - 1]: idx0[i]][j] - V_pred_hybrid[1, idx0[i - 1]: idx0[i]][j])
             V1_error_supervised[i - 1][j] = np.abs(V_real[0, idx0[i - 1]: idx0[i]][j] - V_pred_supervised[0, idx0[i - 1]: idx0[i]][j])
             V2_error_supervised[i - 1][j] = np.abs(V_real[1, idx0[i - 1]: idx0[i]][j] - V_pred_supervised[1, idx0[i - 1]: idx0[i]][j])
-            V1_error_selfsupervised[i - 1][j] = np.abs(V_real[0, idx0[i - 1]: idx0[i]][j] - V_pred_selfsupervised[0, idx0[i - 1]: idx0[i]][j])
-            V2_error_selfsupervised[i - 1][j] = np.abs(V_real[1, idx0[i - 1]: idx0[i]][j] - V_pred_selfsupervised[1, idx0[i - 1]: idx0[i]][j])
+            V1_error_pinn[i - 1][j] = np.abs(V_real[0, idx0[i - 1]: idx0[i]][j] - V_pred_pinn[0, idx0[i - 1]: idx0[i]][j])
+            V2_error_pinn[i - 1][j] = np.abs(V_real[1, idx0[i - 1]: idx0[i]][j] - V_pred_pinn[1, idx0[i - 1]: idx0[i]][j])
             V1_error_valuehardening[i - 1][j] = np.abs(V_real[0, idx0[i - 1]: idx0[i]][j] - V_pred_valuehardening[0, idx0[i - 1]: idx0[i]][j])
             V2_error_valuehardening[i - 1][j] = np.abs(V_real[1, idx0[i - 1]: idx0[i]][j] - V_pred_valuehardening[1, idx0[i - 1]: idx0[i]][j])
 
@@ -89,8 +89,8 @@ V_var_hybrid = np.var((np.hstack((V1_error_hybrid, V2_error_hybrid))))
 V_mae_supervised = np.mean((np.hstack((V1_error_supervised, V2_error_supervised))))
 V_var_supervised = np.var((np.hstack((V1_error_supervised, V2_error_supervised))))
 
-V_mae_selfsupervised = np.mean((np.hstack((V1_error_selfsupervised, V2_error_selfsupervised))))
-V_var_selfsupervised = np.var((np.hstack((V1_error_selfsupervised, V2_error_selfsupervised))))
+V_mae_pinn = np.mean((np.hstack((V1_error_pinn, V2_error_pinn))))
+V_var_pinn = np.var((np.hstack((V1_error_pinn, V2_error_pinn))))
 
 V_mae_valuehardening = np.mean((np.hstack((V1_error_valuehardening, V2_error_valuehardening))))
 V_var_valuehardening = np.var((np.hstack((V1_error_valuehardening, V2_error_valuehardening))))
@@ -99,7 +99,7 @@ print("MAE of hybrid: %f" % V_mae_hybrid)
 print("Var of hybrid: %f" % V_var_hybrid)
 print("MAE of supervised: %f" % V_mae_supervised)
 print("Var of supervised: %f" % V_var_supervised)
-print("MAE of self-supervised: %f" % V_mae_selfsupervised)
-print("Var of self-supervised: %f" % V_var_selfsupervised)
+print("MAE of pinn: %f" % V_mae_pinn)
+print("Var of pinn: %f" % V_var_pinn)
 print("MAE of value hardening: %f" % V_mae_valuehardening)
 print("Var of value hardening: %f" % V_var_valuehardening)
