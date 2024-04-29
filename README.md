@@ -63,6 +63,8 @@ The code is organized as follows:
 ### Uncontrolled_intersection_complete_information_game/Narrow_road_collision_avoidance/Double_lane_change/Two_drone_collision_avoidance: train supervised(SL), physics-informed neural network(PINN), hybrid(HL), epigraphical(EL) and value hardening(VH) model to complete generalization and saftety performance test for case 1/2/3/4 with complete information
 The code is organized as follows:
 * `dataio.py`: load training data for SL, PINN, HL, EL and VH.
+* `dataio_hl_costate.py`: load training data for HL with/without costate supervisory data for case 1.
+* `dataio_el_costate.py`: load training data for EL with/without costate supervisory data for case 1.
 * `training_supervised.py`: contains SL training routine.
 * `training_pinn.py`: contains PINN training routine.
 * `training_hybrid.py`: contains HL training routine.
@@ -70,6 +72,8 @@ The code is organized as follows:
 * `training_valuehardening.py`: contains VH training routine.
 * `training_epigraphical.py`: contains EL training routine.
 * `loss_functions.py`: contains loss functions for SL, PINN, HL, EL and VH (case 4 only includes SL, PINN and HL).
+* `loss_functions_hl_c.py`: contains loss functions for HL with/without costate for case 1.
+* `loss_functions_el_c.py`: contains loss functions for EL with/without costate for case 1.
 * `modules.py`: contains layers and full neural network modules.
 * `modules_adaptive.py`: contains layers and full neural network modules with adaptive activation function for EL training.
 * `utils.py`: contains utility functions.
@@ -84,6 +88,7 @@ The code is organized as follows:
 * `sim_draw_transparent_lanechange.py`: visualization of one case for SL, PINN, HL, EL and VH for case 3.
 * `drone_plot.py`: visualization of one case for SL, PINN and HL for case 4.
 * `./experiment_scripts/train_intersection_HJI.py`: contains scripts to train the model for case 1, which can reproduce experiments in the paper.
+* `./experiment_scripts/train_intersection_HJI_costate.py`: contains scripts to train the model for HL and EL with/without costate in case 1, which can reproduce experiments in the paper.
 * `./experiment_scripts/train_collision_HJI.py`: contains scripts to train the model for case 2, which can reproduce experiments in the paper.
 * `./experiment_scripts/train_lane_HJI.py`: contains scripts to train the model for case 3, which can reproduce experiments in the paper.
 * `./experiment_scripts/train_drone_HJI.py`: contains scripts to train the model for case 4, which can reproduce experiments in the paper.
