@@ -11,28 +11,28 @@ bvpNAA = False
 bvpNANA = False
 
 if bvpAA is True:
-    path1 = 'test_data/value_generation_gt_a_a_expanded.mat'
+    path1 = 'value/tanh/value_generation_gt_a_a_expanded.mat'
     path2 = 'value/tanh/value_generation_hybrid_expanded_a_a_tanh.mat'
     path3 = 'value/tanh/value_generation_supervised_expanded_a_a_tanh.mat'
     path4 = 'value/tanh/value_generation_pinn_expanded_a_a_tanh.mat'
     path5 = 'value/tanh/value_generation_valuehardening_expanded_a_a_tanh.mat'
     path6 = 'value/tanh/value_generation_epigraphical_expanded_a_a_tanh.mat'
 if bvpANA is True:
-    path1 = 'test_data/value_generation_gt_a_na_expanded.mat'
+    path1 = 'value/tanh/value_generation_gt_a_na_expanded.mat'
     path2 = 'value/tanh/value_generation_hybrid_expanded_a_na_tanh.mat'
     path3 = 'value/tanh/value_generation_supervised_expanded_a_na_tanh.mat'
     path4 = 'value/tanh/value_generation_pinn_expanded_a_na_tanh.mat'
     path5 = 'value/tanh/value_generation_valuehardening_expanded_a_na_tanh.mat'
     path6 = 'value/tanh/value_generation_epigraphical_expanded_a_na_tanh.mat'
 if bvpNAA is True:
-    path1 = 'test_data/value_generation_gt_na_a_expanded.mat'
+    path1 = 'value/tanh/value_generation_gt_na_a_expanded.mat'
     path2 = 'value/tanh/value_generation_hybrid_expanded_na_a_tanh.mat'
     path3 = 'value/tanh/value_generation_supervised_expanded_na_a_tanh.mat'
     path4 = 'value/tanh/value_generation_pinn_expanded_na_a_tanh.mat'
     path5 = 'value/tanh/value_generation_valuehardening_expanded_na_a_tanh.mat'
     path6 = 'value/tanh/value_generation_epigraphical_expanded_na_a_tanh.mat'
 if bvpNANA is True:
-    path1 = 'test_data/value_generation_gt_na_na_expanded.mat'
+    path1 = 'value/tanh/value_generation_gt_na_na_expanded.mat'
     path2 = 'value/tanh/value_generation_hybrid_expanded_na_na_tanh.mat'
     path3 = 'value/tanh/value_generation_supervised_expanded_na_na_tanh.mat'
     path4 = 'value/tanh/value_generation_pinn_expanded_na_na_tanh.mat'
