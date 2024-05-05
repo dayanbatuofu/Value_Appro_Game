@@ -110,7 +110,7 @@ The code is organized as follows:
 * `./validation_scripts/valuecontour_generate_epigraphical.py`: generate value contour for EL method.
 * `./validation_scripts/valuecontour_gt_plot.py`: plot value contour in Fig 4. Download the ground truth data before plotting: <a href="https://drive.google.com/file/d/1KGnf94P3VrXH3JRKBiz5ME1Y2WYy4Mzi/view?usp=sharing"> link. 
 * `./validation_scripts/frequency_generation.py`: implement FFT for value approximation in Case 1,2,3.
-* `./validation_scripts/frequency_plot.py`: plot FFT of approximated value in d1-d2 domain, shown in Fig 13, data used for paper is ready.
+* `./validation_scripts/frequency_plot.py`: plot FFT of approximated value in d1-d2 domain, data used for paper is ready.
 * `./validation_scripts/model`: experimental model in the paper.
 * `./validation_scripts/train_data`: training data in the paper.
 * `./validation_scripts/test_data`: testing data in the paper.
