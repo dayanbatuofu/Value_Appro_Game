@@ -7,7 +7,7 @@ Zhe Xu,
 Yi Ren<br>
 Arizona State University
 
-This is our T-RO paper: <a href="https://arxiv.org/pdf/2311.16520.pdf"> "Value Approximation for Two-Player General-Sum Differential Games with State Constraints"</a>
+This is our T-RO paper: <a href="https://arxiv.org/pdf/2311.16520"> "Value Approximation for Two-Player General-Sum Differential Games with State Constraints"</a>
 
 ## Get started
 There exists three different environment, you can set up a conda environment with all dependencies like so:
@@ -42,7 +42,7 @@ The code is organized as follows:
 * `./example/vehicle/problem_def_lane_change.py`: dynamic, PMP equation setting for case 3.
 * `./example/vehicle/problem_def_drone_avoidance.py`: dynamic, PMP equation setting for case 4.
 
-run `generate_intersection.py`, `generate_narrow_road.py`, `generate_lane_change.py`, `generate_drone_avoidance.py` to collect NE values. Please notice there is four player types in case 1. You should give setting in `generate_intersection.py`. Data size can be set in `./example/vehicle/problem_def_intersection.py`, `./example/vehicle/problem_def_narrow_road.py`, `./example/vehicle/problem_def_lane_change.py`, `./example/vehicle/problem_def_drone_avoidance.py`
+run `generate_intersection.py`, `generate_narrow_road.py`, `generate_lane_change.py`, `generate_drone_avoidance.py` to collect NE values. Please notice there is four player types in case 1. You should give setting in `generate_intersection.py`. Data size can be set in `./example/vehicle/problem_def_intersection.py`, `./example/vehicle/problem_def_narrow_road.py`, `./example/vehicle/problem_def_lane_change.py`, `./example/vehicle/problem_def_drone_avoidance.py`.
 
 ### Toy Case: train supervised(SL), physics-informed neural network(PINN), hybrid(HL) and value hardening(VH) model to visualize the toy case shown in the paper
 The code is organized as follows:

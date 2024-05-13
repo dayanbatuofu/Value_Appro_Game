@@ -170,10 +170,10 @@ class setup_problem(problem_prototype):
         x1 = torch.tensor(X1[0], requires_grad=True, dtype=torch.float32)  # including x1,v1
         x2 = torch.tensor(X2[0], requires_grad=True, dtype=torch.float32)  # including x1,v1
 
-        x1_in = (x1 - self.R1 / 2 + self.theta1 * self.W2 / 2) * 0.5  # 3
-        x1_out = -(x1 - self.R1 / 2 - self.W2 / 2 - self.L1) * 0.5
-        x2_in = (x2 - self.R2 / 2 + self.theta2 * self.W1 / 2) * 0.5
-        x2_out = -(x2 - self.R2 / 2 - self.W1 / 2 - self.L2) * 0.5
+        x1_in = (x1 - self.R1 / 2 + self.theta1 * self.W2 / 2) * 5  
+        x1_out = -(x1 - self.R1 / 2 - self.W2 / 2 - self.L1) * 5
+        x2_in = (x2 - self.R2 / 2 + self.theta2 * self.W1 / 2) * 5
+        x2_out = -(x2 - self.R2 / 2 - self.W1 / 2 - self.L2) * 5
 
         Collision_F_x = self.beta * torch.sigmoid(x1_in) * torch.sigmoid(x1_out) * torch.sigmoid(x2_in) * torch.sigmoid(x2_out)
 
