@@ -131,7 +131,7 @@ if Epigraphical == True:
 
 
 if PINN == True:
-    Weight = (15, 1000)
+    Weight = (1, 4000)
 
     pinn_dataset = dataio.IntersectionHJI_PINN(numpoints=61000, pretrain=opt.pretrain, tMin=opt.tMin,
                                                tMax=opt.tMax, counter_start=opt.counter_start,

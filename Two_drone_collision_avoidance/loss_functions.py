@@ -3,7 +3,7 @@ import diff_operators
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-def initialize_intersection_HJI_pinn(dataset, Weight):
+def initialize_intersection_HJI_pinn(dataset, Weight, alpha):
     def intersection_hji(model_output, gt):
         weight1, weight2 = Weight
         source_boundary_values = gt['source_boundary_values']
@@ -66,14 +66,14 @@ def initialize_intersection_HJI_pinn(dataset, Weight):
         # H = lambda^T * (-f) + L because we invert the time
         # Agent 1's action
         # H = (dV/dt)^T * (-f) + V*L when inverting the time, optimal action u = 1/2 * B^T * lambda / V
-        theta1 = torch.atan(lam11_4 * gravity / 200)
-        phi1 = torch.atan(-lam11_5 * gravity / 200)
-        thrust1 = lam11_6 / 2 + gravity
+        theta1 = torch.atan(lam11_4 * gravity / (200 * alpha))
+        phi1 = torch.atan(-lam11_5 * gravity / (200 * alpha))
+        thrust1 = lam11_6 / (2 * alpha) + gravity
 
         # Agent 2's action
-        theta2 = torch.atan(lam22_4 * gravity / 200)
-        phi2 = torch.atan(-lam22_5 * gravity / 200)
-        thrust2 = lam22_6 / 2 + gravity
+        theta2 = torch.atan(lam22_4 * gravity / (200 * alpha))
+        phi2 = torch.atan(-lam22_5 * gravity / (200 * alpha))
+        thrust2 = lam22_6 / (2 * alpha) + gravity
 
         # set up bounds for u1 and u2
         max_acc_theta = torch.tensor([0.05], dtype=torch.float32).to(device)
@@ -147,8 +147,8 @@ def initialize_intersection_HJI_pinn(dataset, Weight):
         loss_instant2 = beta * sigmoid2
 
         # calculate instantaneous loss
-        loss_fun_1 = 100 * torch.tan(theta1) ** 2 + 100 * torch.tan(phi1) ** 2 + (thrust1 - gravity) ** 2 + loss_instant1
-        loss_fun_2 = 100 * torch.tan(theta2) ** 2 + 100 * torch.tan(phi2) ** 2 + (thrust2 - gravity) ** 2 + loss_instant2
+        loss_fun_1 = alpha * (100 * torch.tan(theta1) ** 2 + 100 * torch.tan(phi1) ** 2 + (thrust1 - gravity) ** 2 + loss_instant1)
+        loss_fun_2 = alpha * (100 * torch.tan(theta2) ** 2 + 100 * torch.tan(phi2) ** 2 + (thrust2 - gravity) ** 2 + loss_instant2)
 
         # calculate hamiltonian, H = lambda^T * (-f) + L because we invert the time
         ham_1 = -lam11_1.squeeze() * vx_11.squeeze() - lam11_2.squeeze() * vy_11.squeeze() - \
@@ -178,8 +178,8 @@ def initialize_intersection_HJI_pinn(dataset, Weight):
             diff_constraint_hom = torch.cat((diff_constraint_hom_1, diff_constraint_hom_2), dim=0)
 
         # boundary condition check
-        dirichlet_1 = y1[dirichlet_mask] - 1 * source_boundary_values[:, :y1.shape[1]][dirichlet_mask]
-        dirichlet_2 = y2[dirichlet_mask] - 1 * source_boundary_values[:, y2.shape[1]:][dirichlet_mask]
+        dirichlet_1 = y1[dirichlet_mask] - alpha * source_boundary_values[:, :y1.shape[1]][dirichlet_mask]
+        dirichlet_2 = y2[dirichlet_mask] - alpha * source_boundary_values[:, y2.shape[1]:][dirichlet_mask]
         dirichlet = torch.cat((dirichlet_1, dirichlet_2), dim=0)
 
         # A factor of (weight1, weight2) to make loss roughly equal
@@ -469,8 +469,8 @@ def initialize_intersection_HJI_hyrid(dataset, Weight, alpha):
         costates_difference = torch.cat((costate1_difference, costate2_difference), dim=0)
 
         # boundary condition check
-        dirichlet_1 = y1[:, supervised_index:][dirichlet_mask] - source_boundary_values[:, :hji_index][dirichlet_mask]
-        dirichlet_2 = y2[:, supervised_index:][dirichlet_mask] - source_boundary_values[:, hji_index:][dirichlet_mask]
+        dirichlet_1 = y1[:, supervised_index:][dirichlet_mask] - alpha * source_boundary_values[:, :hji_index][dirichlet_mask]
+        dirichlet_2 = y2[:, supervised_index:][dirichlet_mask] - alpha * source_boundary_values[:, hji_index:][dirichlet_mask]
         dirichlet = torch.cat((dirichlet_1, dirichlet_2), dim=0)
 
         # A factor of (weight1, weight2, weight3, weight4) to make loss roughly equal

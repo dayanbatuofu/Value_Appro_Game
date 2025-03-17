@@ -93,7 +93,8 @@ Hybrid = True
 Valuehardening = False
 
 if PINN == True:
-    Weight = (15, 1000)
+    Weight = (1, 25)
+    alpha = 0.1
 
     pinn_dataset = dataio.IntersectionHJI_PINN(numpoints=81000, pretrain=opt.pretrain, tMin=opt.tMin,
                                                tMax=opt.tMax, counter_start=opt.counter_start,
@@ -107,7 +108,7 @@ if PINN == True:
                                  final_layer_factor=1., hidden_features=opt.num_nl, num_hidden_layers=opt.num_hl)
     model.to(device)
 
-    loss_fn_pinn = loss_functions.initialize_intersection_HJI_pinn(pinn_dataset, Weight)
+    loss_fn_pinn = loss_functions.initialize_intersection_HJI_pinn(pinn_dataset, Weight, alpha)
 
     path = 'experiment_HJI_' + opt.model + '_pinn_drone' + '/'
     root_path = os.path.join(opt.logging_root, path)
@@ -119,8 +120,8 @@ if PINN == True:
 
 if Supervised == True:
     Hybrid_use = False
-    Weight = (40, 500)
-    alpha = 1
+    Weight = (16, 200)
+    alpha = 0.1
 
     supervised_dataset = dataio.IntersectionHJI_Supervised(Hybrid_use, seed=opt.seed)
 
@@ -144,9 +145,9 @@ if Supervised == True:
 
 if Hybrid == True:
     Hybrid_use = True
-    Weight1 = (40, 500)
-    Weight2 = (40, 500, 15, 1000)
-    alpha = 1
+    Weight1 = (16, 200)
+    Weight2 = (16, 200, 0.005, 25)
+    alpha = 0.1
 
     supervised_dataset = dataio.IntersectionHJI_Supervised(Hybrid_use, seed=opt.seed)
     supervised_dataloader = DataLoader(supervised_dataset, shuffle=True, batch_size=opt.batch_size, pin_memory=True,
