@@ -206,11 +206,6 @@ class IntersectionHJI_EL(Dataset):
         time = self.tMin + torch.zeros(self.numpoints, 1).uniform_(0, (self.tMax - self.tMin) * (
                 self.counter / self.full_count))
 
-        label1 = torch.zeros(self.numpoints, 1)
-        label2 = torch.ones(self.numpoints, 1)
-        coords1_el = torch.cat((coords1_el, label1, self.z_1), dim=1)
-        coords2_el = torch.cat((coords2_el, label2, self.z_2), dim=1)
-
         coords1_el = torch.cat((time, coords1_el), dim=1)
         coords2_el = torch.cat((time, coords2_el), dim=1)
 
