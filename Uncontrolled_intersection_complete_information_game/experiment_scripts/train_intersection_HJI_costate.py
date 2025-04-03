@@ -124,7 +124,7 @@ if Epigraphical_with_costate == True:
                                   epochs=opt.num_epochs, lr=opt.lr, steps_til_summary=opt.steps_til_summary,
                                   epochs_til_checkpoint=opt.epochs_til_ckpt, model_dir=root_path, loss_fn=loss_fn_epigraphical,
                                   loss_fn_supervised=loss_fn_supervised, clip_grad=opt.clip_grad, use_lbfgs=opt.use_lbfgs,
-                                  validation_fn=None, start_epoch=opt.checkpoint_toload, pretrain=False, pretrain_iters=opt.pretrain_iters)
+                                  validation_fn=None, start_epoch=opt.checkpoint_toload, pretrain=True, pretrain_iters=opt.pretrain_iters)
 
 
 if Epigraphical_without_costate == True:
@@ -157,7 +157,7 @@ if Epigraphical_without_costate == True:
                                   epochs=opt.num_epochs, lr=opt.lr, steps_til_summary=opt.steps_til_summary,
                                   epochs_til_checkpoint=opt.epochs_til_ckpt, model_dir=root_path, loss_fn=loss_fn_epigraphical,
                                   loss_fn_supervised=loss_fn_supervised, clip_grad=opt.clip_grad, use_lbfgs=opt.use_lbfgs,
-                                  validation_fn=None, start_epoch=opt.checkpoint_toload, pretrain=False, pretrain_iters=opt.pretrain_iters)
+                                  validation_fn=None, start_epoch=opt.checkpoint_toload, pretrain=True, pretrain_iters=opt.pretrain_iters)
 
 
 if Hybrid_with_costate == True:

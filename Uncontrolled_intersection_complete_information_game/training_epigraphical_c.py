@@ -173,11 +173,6 @@ def train(model, train_dataloader, train_dataloader_supervised, epochs, lr, step
 
                         optim.step()
 
-                    scheduler.step(train_loss)
-
-                    lr_scheduler = optim.state_dict()['param_groups'][0]['lr']
-                    LR.append(lr_scheduler)
-
             else:
                 # epigraphical learning
                 for step, (model_input, gt) in enumerate(train_dataloader):
@@ -282,8 +277,8 @@ def train(model, train_dataloader, train_dataloader_supervised, epochs, lr, step
 
             if not total_steps % steps_til_summary:
                 tqdm.write("Epoch %d, Total loss %0.3f, bcs loss_A %0.2f, bcs loss_B %0.2f, value diff %0.2f, constraint diff %0.2f, "
-                           "costate diff %0.2f, hji weight %0.2f, lr %0.6f"
-                    % (epoch, train_loss, bcs_lossA, bcs_lossB, value_diff, constraint_diff, costate_diff, hji_weight, lr_scheduler))
+                           "costate diff %0.2f, hji weight %0.2f"
+                    % (epoch, train_loss, bcs_lossA, bcs_lossB, value_diff, constraint_diff, costate_diff, hji_weight))
 
                 if val_dataloader is not None:
                     print("Running validation set...")
