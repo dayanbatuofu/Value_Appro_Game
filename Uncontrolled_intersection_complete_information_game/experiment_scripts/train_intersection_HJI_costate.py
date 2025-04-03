@@ -110,7 +110,7 @@ if Epigraphical_with_costate == True:
     Epigraphical_dataloader = DataLoader(Epigraphical_dataset, shuffle=True, batch_size=opt.batch_size,
                                          pin_memory=True, num_workers=0)
 
-    model = modules.SingleBVPNet(in_features=5, out_features=1, type=opt.model, mode=opt.mode,
+    model = modules.SingleBVPNet(in_features=6, out_features=1, type=opt.model, mode=opt.mode,
                                  final_layer_factor=1., hidden_features=opt.num_nl, num_hidden_layers=opt.num_hl)
     model.to(device)
 
@@ -143,7 +143,7 @@ if Epigraphical_without_costate == True:
     Epigraphical_dataloader = DataLoader(Epigraphical_dataset, shuffle=True, batch_size=opt.batch_size,
                                          pin_memory=True, num_workers=0)
 
-    model = modules.SingleBVPNet(in_features=5, out_features=1, type=opt.model, mode=opt.mode,
+    model = modules.SingleBVPNet(in_features=6, out_features=1, type=opt.model, mode=opt.mode,
                                  final_layer_factor=1., hidden_features=opt.num_nl, num_hidden_layers=opt.num_hl)
     model.to(device)
 
